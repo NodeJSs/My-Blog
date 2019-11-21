@@ -11,6 +11,7 @@ const IconDiv = styled("div")`
   justify-content: space-around;
   width: 70%;
   margin: 0 auto;
+  max-width: 300px;
 
   img{
     height: 40px;
@@ -32,12 +33,16 @@ const IndexPage = () => (
       > img{
         height: 120px;
         width: 110px;
-        margin: 0 auto;
+        margin: 0rem auto 1rem auto;
       }
 
       > h1{
         font-family: "Roboto mono";
         font-size: 2rem;
+      } 
+      > p{
+        padding: 0 1rem;
+        color: #545454;
       }
     `}>
       <img src="https://res.cloudinary.com/dqcsk8rsc/image/upload/q_auto/v1574358048/avatar_gmcueg.svg" alt=""/>

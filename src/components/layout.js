@@ -28,9 +28,11 @@ const Layout = ({ children }) => {
     <>
       <Global styles={css`
         @import url('https://fonts.googleapis.com/css?family=Roboto Mono');
+        
 
         body{
           margin: 5px;
+          font-family: "Roboto mono";
           
         }
       `} />
