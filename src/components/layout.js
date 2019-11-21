@@ -8,9 +8,10 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-
+import Footer from "./footer";
 import Header from "./header"
 import "./layout.css"
+import { Global, css } from "@emotion/core";
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -25,22 +26,28 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+      <Global styles={css`
+        @import url('https://fonts.googleapis.com/css?family=Roboto Mono');
+
+        body{
+          margin: 5px;
+          
+        }
+      `} />
+      <div css = {css`
+          display:grid;
+          grid-template-areas: "header" "main" "footer";
+          grid-template-columns: 1fr;
+          grid-template-rows: auto 1fr auto;
+          
+          height: 100vh;
+      `}>
+        <Header siteTitle={data.site.siteMetadata.title} css={css`grid-area: header;`} />
+        <main css={css`grid-area: main;`}>{children}</main>
+        <Footer css={css`grid-area: footer;`} />
       </div>
+
+
     </>
   )
 }
@@ -50,3 +57,10 @@ Layout.propTypes = {
 }
 
 export default Layout
+
+
+/*<footer>
+          © {new Date().getFullYear()}, Built with
+          {` `}
+          <a href="https://www.gatsbyjs.org">Gatsby</a>
+        </footer>*/
