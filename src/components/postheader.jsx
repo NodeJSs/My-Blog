@@ -4,7 +4,7 @@ import React from "react"
 import { css } from "@emotion/core";
 
 const Header = ({ siteTitle }) => (
-  <header css = {css`
+    <header css={css`
   
 
     padding: 1rem 1.5rem 0 1.5rem;
@@ -18,29 +18,36 @@ const Header = ({ siteTitle }) => (
       font-family: Roboto Mono;
     }
   `}>
-    <span css = {css`
+        <span css={css`
         font-size: 150%;
         font-weight: bold;
         cursor: pointer
+        
         /** */
 
-    `}> 
-        <Link css = {css`
+    `}>
+        <Link css={css`
             text-decoration: none;
             color: #000;
-        `}to  = "/">&larr;</Link>
-    </span>
-    <img src="https://res.cloudinary.com/dqcsk8rsc/image/upload/q_auto/v1574354900/luck_pjsrvs.svg" alt="" />
-    <p style = {{marginLeft: "0.5rem"}}>Katana</p>
-  </header>
+            display: flex;
+            align-items: center
+        `}
+            to="/">
+                &larr;<img src="https://res.cloudinary.com/dqcsk8rsc/image/upload/q_auto/v1574354900/luck_pjsrvs.svg" alt="" />
+            </Link>
+
+        </span>
+
+        <p style={{ marginLeft: "0.5rem" }}>Katana</p>
+    </header>
 )
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
+    siteTitle: PropTypes.string,
 }
 
 Header.defaultProps = {
-  siteTitle: ``,
+    siteTitle: ``,
 }
 
 export default Header

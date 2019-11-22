@@ -13,7 +13,7 @@ import Header from "./postheader"
 import "./layout.css"
 import { Global, css } from "@emotion/core";
 
-const Layout = ({ children }) => {
+const PostLayout = ({ children }) => {
   
   return (
     <>
@@ -36,7 +36,14 @@ const Layout = ({ children }) => {
           height: 100vh;
       `}>
         <Header css={css`grid-area: header;`} />
-        <main css={css`grid-area: main;`}>{children}</main>
+        <main css={css`
+            grid-area: main;
+            background-color: white;
+            text-align: justify;
+            
+        `}>
+            {children}
+        </main>
         <Footer css={css`grid-area: footer;`} />
       </div>
 
@@ -45,10 +52,10 @@ const Layout = ({ children }) => {
   )
 }
 
-Layout.propTypes = {
+PostLayout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default Layout
+export default PostLayout
 
 

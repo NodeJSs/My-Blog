@@ -7,9 +7,10 @@ const usePosts = () => {
           nodes{
             frontmatter{
               excerpt
-              slug
+              path
               title
               date
+              image
             }
           }
         }
@@ -19,8 +20,9 @@ const usePosts = () => {
     return data.allMdx.nodes.map( post => ({
         title: post.frontmatter.title,
         excerpt: post.frontmatter.excerpt,
-        slug: post.frontmatter.slug,
-        date: post.frontmatter.date
+        path: post.frontmatter.path,
+        date: post.frontmatter.date,
+        image: post.frontmatter.image
     }));
 
 

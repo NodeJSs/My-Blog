@@ -24,7 +24,7 @@ const IconDiv = styled("div")`
 const Posts = styled("div")`
   
   width: 80%;
-  max-width: 500px;
+  max-width: 700px;
   margin: 2rem auto 0 auto;
 `;
 
@@ -64,10 +64,10 @@ const IndexPage = () => {
       <p>A technical blog for tech stuff by Faruq, a web developer and Anime lover from Nigeria </p>
 
       <IconDiv>
-        <img src="https://res.cloudinary.com/dqcsk8rsc/image/upload/q_auto/v1574354899/Twitter_2_oebglr.svg" alt=""/>
-        <img src="https://res.cloudinary.com/dqcsk8rsc/image/upload/q_auto/v1574354901/LinkedIn_cpstve.svg" alt=""/>
-        <img src="https://res.cloudinary.com/dqcsk8rsc/image/upload/q_auto/v1574354899/Instagram_1_xipdum.svg" alt=""/>
-        <img src="https://res.cloudinary.com/dqcsk8rsc/image/upload/q_auto/v1574354899/Github_s8q0hg.svg" alt=""/>
+        <a href="https://twitter.com/developerRuq"><img src="https://res.cloudinary.com/dqcsk8rsc/image/upload/q_auto/v1574354899/Twitter_2_oebglr.svg" alt=""/></a>
+        <a href="www.linkedin.com/in/faruq-gbolahan-yusuff-073712190"><img src="https://res.cloudinary.com/dqcsk8rsc/image/upload/q_auto/v1574354901/LinkedIn_cpstve.svg" alt=""/></a>
+        <a href="https://www.instagram.com/unreal_photos_/?hl=en"><img src="https://res.cloudinary.com/dqcsk8rsc/image/upload/q_auto/v1574354899/Instagram_1_xipdum.svg" alt=""/></a>
+        <a href="https://github.com/NodeJSs"><img src="https://res.cloudinary.com/dqcsk8rsc/image/upload/q_auto/v1574354899/Github_s8q0hg.svg" alt=""/></a>
       </IconDiv>
 
       <Posts>

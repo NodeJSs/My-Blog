@@ -10,8 +10,13 @@ collections:
     label: Blog
     folder: Blog Posts
     create: true
+    format: "frontmatter"
+    extension: "mdx"
     fields:
       - { name: path, label: Path }
-      - { name: date, label: Date, widget: datetime }
+      - { name: date, label: Date }
       - { name: title, label: Title }
+      - { name: tags, label: Tags }
+      - { name: excerpt, label: Excerpt }
+      
       - { name: body, label: Body, widget: markdown }

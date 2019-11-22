@@ -12,16 +12,23 @@ const Post = styled("div")`
     text-align: left;
     position: relative;
     transition: transform 0.5s, box-shadow 0.5s;
+    margin-bottom:2rem;
 
     :hover{
         transform: translatey(-10px);
         box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.19);
 
     }
-
-    .post-body{
-        color:red;
+    > img{
+        margin-bottom: 0;
+        border-top-left-radius: 6px;
+        border-top-left-radius: 6px;
+        width: 100%;
+        height: auto;
+        display:block;
     }
+
+    
 
     
 
@@ -36,10 +43,10 @@ const TagContainer = styled("div")`
 `;
 
 const PostPreview = ({ post }) => {
-
+    const tags = post.tags.split(",");
     return (
         <Post>
-            {post.image ? <img src="" alt={post.title} /> : ""}
+            {post.image ? <img src={post.image} alt={post.title} /> : ""}
             <div css = {css`
                 padding: 0.5rem 0;
                 /** */
@@ -72,7 +79,9 @@ const PostPreview = ({ post }) => {
                         {`Posted ${post.date}`}
                     </p>
                     <TagContainer>
-                        <Tag tagFor = "JS"/>
+                        {
+                            tags.map(tag => <Tag tagFor = {tag} css = {css`margin-right: 0.7rem`}/>)
+                        }
                     </TagContainer>
                 </PostBody>
             </div>
