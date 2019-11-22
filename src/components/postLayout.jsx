@@ -7,23 +7,14 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+
 import Footer from "./footer";
-import Header from "./header"
+import Header from "./postheader"
 import "./layout.css"
 import { Global, css } from "@emotion/core";
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
+  
   return (
     <>
       <Global styles={css`
@@ -44,8 +35,8 @@ const Layout = ({ children }) => {
           
           height: 100vh;
       `}>
-        <Header siteTitle={data.site.siteMetadata.title} css={css`grid-area: header;`} />
-        <main css={css`grid-area: main; background-color: #fff;`}>{children}</main>
+        <Header css={css`grid-area: header;`} />
+        <main css={css`grid-area: main;`}>{children}</main>
         <Footer css={css`grid-area: footer;`} />
       </div>
 
@@ -61,8 +52,3 @@ Layout.propTypes = {
 export default Layout
 
 
-/*<footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>*/

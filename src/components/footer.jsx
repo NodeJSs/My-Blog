@@ -1,32 +1,29 @@
 import React from "react";
-import {css} from "@emotion/core";
+import { css } from "@emotion/core";
 import styled from "@emotion/styled";
 
 const StyledFooter = styled("footer")`
     background: #1D282E;
-    padding: 1.5rem;
-
-    form{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
+    padding: 1.5rem 0.5rem;
+    text-align: center;
+    color: white;
+    
+    font-family: "Open sans";
+    p{
+        font-weight: 100;
     }
-    input{
-        margin-bottom: 1rem;
-    }
+    
+
+
 `;
 
+
+
 const Footer = () => {
-    return(
+    return (
         <StyledFooter>
-            <form action="">
-                <input type="text"/>
-                <input type="email" name="" id=""/>
-                <button>
-                    Subscribe
-                </button>
-            </form>
+            <p style = {{margin: "1rem"}}>All articles are written by Yusuff Faruq</p>
+            <p style = {{margin: "0"}}>Copyright &copy; 2019</p>
         </StyledFooter>
     );
 }

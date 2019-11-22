@@ -5,6 +5,8 @@ import Image from "../components/image"
 import SEO from "../components/seo"
 import {css} from "@emotion/core";
 import styled from "@emotion/styled";
+import PostPreview from "../components/PostPreview";
+import usePosts from "../hooks/use-posts";
 
 const IconDiv = styled("div")`
   display: flex;
@@ -18,7 +20,19 @@ const IconDiv = styled("div")`
     width: 40px;
   }
 `;
-const IndexPage = () => (
+
+const Posts = styled("div")`
+  
+  width: 80%;
+  max-width: 500px;
+  margin: 2rem auto 0 auto;
+`;
+
+const IndexPage = () => {
+  const posts = usePosts();
+  console.log(posts);
+  return (
+ 
   <Layout>
     <SEO title="Home" />
     <div css = {css`
@@ -55,8 +69,14 @@ const IndexPage = () => (
         <img src="https://res.cloudinary.com/dqcsk8rsc/image/upload/q_auto/v1574354899/Instagram_1_xipdum.svg" alt=""/>
         <img src="https://res.cloudinary.com/dqcsk8rsc/image/upload/q_auto/v1574354899/Github_s8q0hg.svg" alt=""/>
       </IconDiv>
+
+      <Posts>
+        {posts.map(
+          post => <PostPreview post = {post}></PostPreview>
+        )}
+      </Posts>
     </div>
   </Layout>
-)
+)}
 
 export default IndexPage
