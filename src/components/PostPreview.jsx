@@ -24,7 +24,7 @@ const Post = styled("div")`
         border-top-left-radius: 6px;
         border-top-left-radius: 6px;
         width: 100%;
-        height: auto;
+        height: 300px;
         display:block;
     }
 
