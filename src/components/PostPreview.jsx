@@ -39,7 +39,8 @@ const PostBody = styled("div")`
 
 const TagContainer = styled("div")`
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    flex-wrap:wrap;
 `;
 
 const PostPreview = ({ post }) => {
@@ -80,7 +81,7 @@ const PostPreview = ({ post }) => {
                     </p>
                     <TagContainer>
                         {
-                            tags.map(tag => <Tag tagFor = {tag} css = {css`margin-right: 0.7rem`}/>)
+                            tags.map(tag => <Tag tagFor = {tag} />)
                         }
                     </TagContainer>
                 </PostBody>

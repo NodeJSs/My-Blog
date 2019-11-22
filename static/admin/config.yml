@@ -18,5 +18,5 @@ collections:
       - { name: title, label: Title }
       - { name: tags, label: Tags }
       - { name: excerpt, label: Excerpt }
-      
+      - { name: image, label: Image }
       - { name: body, label: Body, widget: markdown }

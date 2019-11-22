@@ -11,6 +11,7 @@ const usePosts = () => {
               title
               date
               image
+              tags
             }
           }
         }
@@ -22,7 +23,8 @@ const usePosts = () => {
         excerpt: post.frontmatter.excerpt,
         path: post.frontmatter.path,
         date: post.frontmatter.date,
-        image: post.frontmatter.image
+        tags: post.frontmatter.tags,
+        image: (post.frontmatter.image ? post.frontmatter.image: "")
     }));
 
 
