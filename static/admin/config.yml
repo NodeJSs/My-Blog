@@ -15,6 +15,7 @@ collections:
     fields:
       - { name: path, label: Path }
       - { name: date, label: Date, widget: date, format: "DD MMMM, YYYY" }
+      - { name: dateForSorting, label: Date For Sorting, widget: date}
       - { name: title, label: Title }
       - { name: tags, label: Tags }
       - { name: excerpt, label: Excerpt }
