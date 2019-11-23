@@ -14,9 +14,9 @@ collections:
     extension: "mdx"
     fields:
       - { name: path, label: Path }
-      - { name: date, label: Date, widget: date }
+      - { name: date, label: Date, widget: date, format: "DD MMMM, YYYY" }
       - { name: title, label: Title }
       - { name: tags, label: Tags }
       - { name: excerpt, label: Excerpt }
-      - { name: image, label: Image }
+      - { name: image, label: Image, default: "" }
       - { name: body, label: Body, widget: markdown }

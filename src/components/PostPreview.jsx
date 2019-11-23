@@ -45,6 +45,7 @@ const TagContainer = styled("div")`
 
 const PostPreview = ({ post }) => {
     const tags = post.tags.split(",");
+    
     return (
         <Post>
             {post.image ? <img src={post.image} alt={post.title} /> : ""}
