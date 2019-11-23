@@ -26,6 +26,15 @@ const PostLayout = ({ children }) => {
           font-family: "Roboto mono";
           
         }
+
+        img{
+          display: block;
+          margin: 0 auto;
+
+        }
+        code[class*="language-"], pre[class*="language-"] {
+          font-size: 90%;
+        }
       `} />
       <div css = {css`
           display:grid;
