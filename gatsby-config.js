@@ -24,7 +24,7 @@ module.exports = {
         short_name: `KatanaBlog`,
         start_url: `/`,
         background_color: `#fb9879`,
-        theme_color: `#1d72a1`,
+        theme_color: `#fb9879`,
         display: `minimal-ui`,
         icon: `src/images/luck.svg`, // This path is relative to the root of the site.
       },
