@@ -28,7 +28,7 @@ const Layout = ({ children }) => {
     <>
       <Global styles={css`
         @import url('https://fonts.googleapis.com/css?family=Roboto Mono');
-        @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
         body{
           margin: 5px;
