@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `KatanaBlog`,
+    title: `KatanaBlog | Technical articles about tech`,
     description: `Technical articles about tech`,
     author: `Yusuff Faruq`,
   },
@@ -23,7 +23,7 @@ module.exports = {
         name: `KatanaBlog`,
         short_name: `KatanaBlog`,
         start_url: `/`,
-        background_color: `#1d72a1`,
+        background_color: `#fb9879`,
         theme_color: `#1d72a1`,
         display: `minimal-ui`,
         icon: `src/images/luck.svg`, // This path is relative to the root of the site.
@@ -45,6 +45,12 @@ module.exports = {
         defaultLayouts: {
           default: require.resolve(`./src/components/postLayout.jsx`),
         },
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {},
+          },
+        ],
         
       },
     }
