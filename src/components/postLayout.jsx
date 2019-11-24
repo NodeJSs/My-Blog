@@ -51,7 +51,7 @@ const PostLayout = ({ children }) => {
           grid-template-columns: 1fr;
           grid-template-rows: auto 1fr auto;
           
-          height: 100%;
+          height: 100vh;
       `}>
         <Header css={css`grid-area: header;`} />
         <main css={css`

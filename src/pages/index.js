@@ -23,9 +23,13 @@ const IconDiv = styled("div")`
 
 const Posts = styled("div")`
   
-  width: 92%;
-  max-width: 700px;
+  width: 80%;
+  max-width: 600px;
   margin: 2rem auto 0 auto;
+
+  @media (max-width: 600px){
+    width: 90%;
+  }
 `;
 
 const IndexPage = () => {
