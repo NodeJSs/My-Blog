@@ -26,6 +26,9 @@ const PostLayout = ({ children }) => {
           font-family: "Roboto mono";
           
         }
+        html{
+          min-width: fit-content;
+        }
 
         img{
           display: block;

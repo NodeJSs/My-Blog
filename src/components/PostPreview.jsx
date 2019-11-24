@@ -87,7 +87,7 @@ const PostPreview = ({ post }) => {
                     </TagContainer>
                 </PostBody>
             </div>
-        <Link to = {`/${post.path}`} css = {css`
+        <Link to = {`/${post.slug}`} css = {css`
             position: absolute;
             height: 100%;
             width: 100%;
