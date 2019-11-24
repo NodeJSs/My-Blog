@@ -1,0 +1,136 @@
+---
+path: custom-attributes-in-html5
+date: '20 October, 2019'
+dateForSorting: 2019-10-19T23:00:00.000Z
+title: Using Custom Attributes in HTML5
+tags: 'html5,html,javascript'
+excerpt: A Simple Introduction to Custom Attributes in html5
+image: /assets/brayden-law-iblophwohje-unsplash.jpg
+---
+Code used in this article [here](https://github.com/faruq2/CustomHtmlAttributes) 
+
+
+![html5.png](https://res.cloudinary.com/dqcsk8rsc/image/upload/q_auto/v1574595229/pankaj-patel_nwzfox.jpg)
+
+**Hey!**
+
+In this article, I’m going to be talking about how you can use custom attributes in your HTML5 code using **data-***.
+
+First of all, I’m going to talk about why you might need to use custom attributes in your projects.  Until a while back, I never knew about custom attributes mostly because I never had to use them. That was till I was a part of a team that was building a budgeting website. I needed a way to store the original budget allocated to each item in the user’s list and reference that value when the user wants to edit them. The remaining money left (positive or negative) would then be added to the balance.
+
+I didn’t have a way to do this but after searching online, I was able to store the original budget allocated to every item in a custom attribute each and change them when I needed to.
+
+Custom attributes are very powerful and immensely useful.
+
+Without further ado, let’s dive into an example!
+
+## EXAMPLE
+In our example, we are going to create an **h1 ** element which would have the level of a player as a custom attribute. We would then use a button to increase the level of the player(showing these changes on the **h1 ** element).
+
+Let’s get started!
+
+
+
+- Create an HTML file with the necessary skeleton code in your preferred code editor.
+- Next, add an **h1 ** element and give it an id of **player**
+
+   ```
+    <h1 id="player"></h1>
+   ``` 
+- Now, we are going to add a custom attribute. To do so, we'll use the 
+ format: **data-AttrName** where **AttrName** is the name of the custom 
+ attribute.
+Our attribute name is going to be **"level"** and we'll assign it a value of **Rookie**
+ ```
+ <h1 data-level="Rookie" id="player"></h1>
+ ``` 
+We'll also add a button to level up the player. It should have an id of **level up**
+
+  ```
+ <h1 data-level="Rookie" id="player"></h1>
+ <button id="levelUp">Level up</button>
+  ```
+That's it for the HTML.
+
+### Let's move on to the JavaScript part!
+
+    
+First of all, 
+    We are going to initialise some variables and assign them values
+
+   ```
+    const player = document.getElementById("player");
+    const levelUp = document.getElementById("levelUp");
+     ``` 
+**player** and **levelUp** represent the **h1** element and the **button** element respectively.
+We are now going to access the custom attribute that we made before. All custom attributes are stored in an object called **dataset**. So to access the custom attribute "level", we'll do:
+
+   ```
+   let level = player.dataset.level;
+   ``` 
+So, we have assigned the value of the "level" attribute to a variable called **level**.
+Next, we need to create a function that makes the **h1** element display content (the player's level). This function will be called at the beginning of the JS program. We'll call it setPlayerLevel(...because...why not). 
+
+ ```
+function setPlayerLevel(){
+        player.innerHTML = `Player Level: ${level}`;
+    };
+ ``` 
+By the way, I used what is called a **template literal** (here - `Player level : ${level}`). It's a new way of assigning values to strings in ES6. You can learn more about it  [here](https://codeburst.io/javascript-what-are-template-literals-5d08a50ef2e3) .
+
+ Now, we are going to create a function that will be passed as an event 
+ handler to the **button** element.
+ We'll call this function **levelUpPlayer**.
+
+  ```
+  function levelUpPlayer(){
+        level = "Warrior";
+        setPlayerLevel();
+     }
+  ``` 
+This function changes the value of the custom attribute to "Warrior" and calls the setPlayerLevel function. This will make the **h1** element display "Warrior" as the new player level.
+
+ Finally, we'll pass the event handler to the button.
+
+ ```
+ window.onload = function () {
+        levelUp.addEventListener("click", () => { levelUpPlayer(); });
+    }
+    
+ ``` 
+  
+ **Note: I recommend you do this after the declaration of the variables as it 
+ makes your code look more organised**.
+
+ So using that piece of code, we told the browser, "Anytime the page loads, 
+ pass the event handler for the click event to the button". IAlso, I used an arrow function in that block of code. If you aren't familiar with arrow functions, you can read up about them  [here](https://www.w3schools.com/js/js_arrow_function.asp).
+
+Don't forget to call the setPlayerLevel function at the beginning of the JS script.
+
+```
+setPlayerLevel();
+``` 
+
+
+When you run your code, you should see an **h1** and a **button** element on your screen and the content of the **h1** element should change when the button is clicked.
+
+
+You can see the result in this codepen below. I included extra code in comments in case you wanted to take the code a bit further and have the button level up the player through different levels.
+
+%[<iframe height="265" style="width: 100%;" scrolling="no" title="WNNoYEL" src="https://codepen.io/Gbolahan1/embed/WNNoYEL?height=265&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/Gbolahan1/pen/WNNoYEL'>WNNoYEL</a> by Yusuff Faruq 
+  (<a href='https://codepen.io/Gbolahan1'>@Gbolahan1</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>]
+
+You can also check the code on my github repo  [here](https://github.com/faruq2/CustomHtmlAttributes) .
+
+
+
+
+
+
+
+
+
+
+
