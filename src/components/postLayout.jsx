@@ -30,7 +30,11 @@ const PostLayout = ({ children }) => {
         img{
           display: block;
           margin: 0 auto;
-
+          
+        }
+        p{
+          letter-spacing:0.01rem;
+          line-height:2rem;
         }
         code[class*="language-"], pre[class*="language-"] {
           font-size: 90%;

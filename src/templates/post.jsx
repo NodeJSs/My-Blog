@@ -24,7 +24,7 @@ const PostTemplate = ({ data: { mdx: post } }) => {
         <PostLayout>
             <h1 css = {css`
                 text-align:center;
-                margin: 2rem auto 1rem auto;
+                margin: 2rem 1rem 1rem 1rem;
                 font-family: "Roboto mono";
                 font-weight: normal;
                 /** */
@@ -38,7 +38,7 @@ const PostTemplate = ({ data: { mdx: post } }) => {
             </p>
             <div css = {css`
                 width: 85%;
-                max-width: 700px;
+                max-width: 800px;
                 font-family: "Open sans";
                 margin: 0 auto 2rem auto;
                 border: 1px solid #AFAFAF;
