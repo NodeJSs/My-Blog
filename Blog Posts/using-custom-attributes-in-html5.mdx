@@ -35,6 +35,7 @@ Let’s get started!
 - Next, add an **h1 ** element and give it an id of **player**
 
    ```
+html
     <h1 id="player"></h1>
    ``` 
 - Now, we are going to add a custom attribute. To do so, we'll use the 
@@ -42,11 +43,13 @@ Let’s get started!
  attribute.
 Our attribute name is going to be **"level"** and we'll assign it a value of **Rookie**
  ```
+html
  <h1 data-level="Rookie" id="player"></h1>
  ``` 
 We'll also add a button to level up the player. It should have an id of **level up**
 
   ```
+html
  <h1 data-level="Rookie" id="player"></h1>
  <button id="levelUp">Level up</button>
   ```
@@ -59,19 +62,27 @@ First of all,
     We are going to initialise some variables and assign them values
 
    ```
+javascript
+
     const player = document.getElementById("player");
     const levelUp = document.getElementById("levelUp");
-     ``` 
+
+  ``` 
 **player** and **levelUp** represent the **h1** element and the **button** element respectively.
 We are now going to access the custom attribute that we made before. All custom attributes are stored in an object called **dataset**. So to access the custom attribute "level", we'll do:
 
    ```
+javascript
+
    let level = player.dataset.level;
+
    ``` 
 So, we have assigned the value of the "level" attribute to a variable called **level**.
 Next, we need to create a function that makes the **h1** element display content (the player's level). This function will be called at the beginning of the JS program. We'll call it setPlayerLevel(...because...why not). 
 
  ```
+javascript
+
 function setPlayerLevel(){
         player.innerHTML = `Player Level: ${level}`;
     };
@@ -83,6 +94,8 @@ By the way, I used what is called a **template literal** (here - `Player level :
  We'll call this function **levelUpPlayer**.
 
   ```
+javascript
+
   function levelUpPlayer(){
         level = "Warrior";
         setPlayerLevel();
@@ -93,6 +106,8 @@ This function changes the value of the custom attribute to "Warrior" and calls t
  Finally, we'll pass the event handler to the button.
 
  ```
+javascript
+
  window.onload = function () {
         levelUp.addEventListener("click", () => { levelUpPlayer(); });
     }
@@ -102,13 +117,14 @@ This function changes the value of the custom attribute to "Warrior" and calls t
  **Note: I recommend you do this after the declaration of the variables as it 
  makes your code look more organised**.
 
- So using that piece of code, we told the browser, "Anytime the page loads, 
- pass the event handler for the click event to the button". IAlso, I used an arrow function in that block of code. If you aren't familiar with arrow functions, you can read up about them  [here](https://www.w3schools.com/js/js_arrow_function.asp).
+ So using that piece of code, we told the browser, "Anytime the page loads, pass the event handler for the click event to the button". I used an arrow function in that block of code. If you aren't familiar with arrow functions, you can read up about them  [here](https://www.w3schools.com/js/js_arrow_function.asp).
 
 Don't forget to call the setPlayerLevel function at the beginning of the JS script.
 
 ```
+javascript
 setPlayerLevel();
+
 ``` 
 
 
@@ -117,7 +133,7 @@ When you run your code, you should see an **h1** and a **button** element on you
 
 You can see the result in this codepen below. I included extra code in comments in case you wanted to take the code a bit further and have the button level up the player through different levels.
 
-%[<iframe height="265" style="width: 100%;" scrolling="no" title="WNNoYEL" src="https://codepen.io/Gbolahan1/embed/WNNoYEL?height=265&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+[<iframe height="265" style="width: 100%;" scrolling="no" title="WNNoYEL" src="https://codepen.io/Gbolahan1/embed/WNNoYEL?height=265&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/Gbolahan1/pen/WNNoYEL'>WNNoYEL</a> by Yusuff Faruq 
   (<a href='https://codepen.io/Gbolahan1'>@Gbolahan1</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>]
