@@ -12,7 +12,7 @@ exports.createPages = async ({actions, graphql, reporter}) => {
             allMdx{
                 nodes{
                     frontmatter{
-                        path
+                        slug
                     }
                 }
             }
@@ -26,10 +26,10 @@ exports.createPages = async ({actions, graphql, reporter}) => {
     const posts = result.data.allMdx.nodes;
     posts.forEach(post => {
         actions.createPage({
-            path: post.frontmatter.path,
+            path: post.frontmatter.slug,
             component: require.resolve("./src/templates/post.jsx"),
             context: {
-                path: post.frontmatter.path
+                slug: post.frontmatter.slug
             }
         })
     })

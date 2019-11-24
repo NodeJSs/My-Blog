@@ -13,7 +13,7 @@ collections:
     format: "frontmatter"
     extension: "mdx"
     fields:
-      - { name: path, label: Path }
+      - { name: slug, label: Path(slug) }
       - { name: date, label: Date, widget: date, format: "DD MMMM, YYYY" }
       - { name: dateForSorting, label: Date For Sorting, widget: date}
       - { name: title, label: Title }

@@ -6,10 +6,10 @@ import PostLayout from "../components/postLayout";
 
 
 export const query = graphql`
-query($path: String!){
-    mdx(frontmatter:{path: {eq: $path}}){
+query($slug: String!){
+    mdx(frontmatter:{slug: {eq: $slug}}){
       frontmatter{
-        path
+        slug
         title
         date
       }

@@ -7,7 +7,7 @@ const usePosts = () => {
         nodes{
           frontmatter{
             excerpt
-            path
+            slug
             title
             date
             dateForSorting(formatString: "D-M-Y")
@@ -22,7 +22,7 @@ const usePosts = () => {
     return data.allMdx.nodes.map( post => ({
         title: post.frontmatter.title,
         excerpt: post.frontmatter.excerpt,
-        path: post.frontmatter.path,
+        slug: post.frontmatter.slug,
         date: post.frontmatter.date,
         tags: post.frontmatter.tags,
         image: (post.frontmatter.image ? post.frontmatter.image: "")
