@@ -11,6 +11,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #fff;
 }
+
+code[class*="language-"]{
+  padding:0.5rem;
+  
+}
+
+@media (max-width:654px){
+  code[class*="language-"]{
+    white-space: pre-wrap;
+    margin: 0 auto;
+  }
+}
+
 article,
 aside,
 details,

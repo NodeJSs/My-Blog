@@ -27,7 +27,7 @@ const PostLayout = ({ children }) => {
           
         }
         html{
-          min-width: fit-content;
+          
         }
 
         img{
@@ -41,7 +41,9 @@ const PostLayout = ({ children }) => {
         }
         code[class*="language-"], pre[class*="language-"] {
           font-size: 90%;
+          overflow-x: auto;
         }
+        
       `} />
       <div css = {css`
           display:grid;
@@ -49,7 +51,7 @@ const PostLayout = ({ children }) => {
           grid-template-columns: 1fr;
           grid-template-rows: auto 1fr auto;
           
-          height: 100vh;
+          height: 100%;
       `}>
         <Header css={css`grid-area: header;`} />
         <main css={css`

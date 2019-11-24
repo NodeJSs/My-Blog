@@ -2,7 +2,6 @@ import React from "react";
 import { css } from "@emotion/core";
 import styled from "@emotion/styled";
 import { Link } from "gatsby";
-import usePosts from "../hooks/use-posts";
 import Tag from "./tag";
 
 const Post = styled("div")`

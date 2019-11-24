@@ -37,7 +37,7 @@ const PostTemplate = ({ data: { mdx: post } }) => {
                 {post.frontmatter.date}
             </p>
             <div css = {css`
-                width: 85%;
+                width: 95%;
                 max-width: 800px;
                 font-family: "Open sans";
                 margin: 0 auto 2rem auto;
