@@ -45,6 +45,7 @@ const PostTemplate = ({ data: { mdx: post } }) => {
                 border-radius: 6px;
                 padding: 1.5rem;
                 user-select: none;
+                
             `}>
             <MDXRenderer>
                 {post.body}

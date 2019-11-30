@@ -58,6 +58,10 @@ const PostLayout = ({ children }) => {
             grid-area: main;
             background-color: white;
             text-align: justify;
+
+            h2,h3,h4,h5,h6{
+              text-align: left;
+            }
             
         `}>
             {children}
