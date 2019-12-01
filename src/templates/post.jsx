@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import { css } from "@emotion/core";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import PostLayout from "../components/postLayout";
+import SEO from "../components/seo";
 
 
 export const query = graphql`
@@ -22,6 +23,7 @@ const PostTemplate = ({ data: { mdx: post } }) => {
 
     return (
         <PostLayout>
+            <SEO title = {post.frontmatter.title} />
             <h1 css = {css`
                 text-align:center;
                 margin: 2rem 1rem 1rem 1rem;
