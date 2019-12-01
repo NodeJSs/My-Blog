@@ -2,9 +2,9 @@
 slug: building-a-blog-using-gatsby-1
 date: '30 November, 2019'
 dateForSorting: 2019-11-30T12:35:38.764Z
-title: Building a Blog with Gatsby
+title: Building a Blog with Gatsby - 1
 tags: 'gatsby,static site generator,react,JavaScript'
-excerpt: "In this article, I'll walk you through the steps of building a very simple blog with Gatsby. Let's Go \U0001F525\U0001F680"
+excerpt: "In this article, I'll walk you through the steps of building a very simple blog with Gatsby.Let's Go \U0001F525\U0001F680"
 image: /assets/gatsby-image.jpeg
 ---
 Hey Guys!
@@ -121,10 +121,10 @@ So if we import the layout.js component in a file (for example a page), we can r
 
 We are going to leave the layout.js file intact because it takes care of some styling which I don't want to focus on in this tutorial.
 
-##### Let's move to the index.js file in the pages folder !
+### Let's move to the index.js file in the pages folder !
 
-For this tutorial we will remove everything in between the layout component except the SEO component.
-We should have something like this
+Open the index.js file in the pages folder. For this tutorial we will remove everything in between the layout component except the SEO component.
+Once that is done, we should have something like this
 
 ```jsx
 const IndexPage = () => (
@@ -155,7 +155,7 @@ You should see the changes on the page once you save.
 
 Now we are going to Link to another page.
 
-Thankfully, we already have a **page-2.js** that Gatsby has given us.
+Fortunately, we already have a **page-2.js** that Gatsby has given us.
 
 To link to another page in Gatsby, we use the **Link** component which we have to import from Gatsby so add this to the top of the index.js (it might have already been imported for you, if that's the case you don't need to import it again)
 
@@ -163,7 +163,7 @@ To link to another page in Gatsby, we use the **Link** component which we have t
 import { Link } from "gatsby";
 ```
 
-Now we will use the Link component inside the layout component, we call the link component like every other component and give it a **to** attribute (which is very similar to an **href** attribute in an anchor tag). The value of the **to** attribute is the name of the page we want to link to. In this case, that name will be "page-2" or if you created a page yourself, the name of that page.
+Now we will use the Link component inside the layout component, we call the link component like every other component and give it a **to** attribute (which is very similar to an **href** attribute in an anchor tag). The value of the **to** attribute is a forward slash (** / **) followed by the name of the page we want to link to. In this case, that name will be "page-2" or if you created a page yourself, the name of that page.
 
 So now, we should have
 
@@ -174,7 +174,7 @@ const IndexPage = () => (
     <h1>Welcome to my Blog</h1>
     <p>I welcome you</p>
     <p>Welcome once again!😉</p>
-    <Link to = "page-2">Go to page 2</Link>
+    <Link to = "/page-2">Go to page 2</Link>
   </Layout>
 )
 ```
@@ -183,6 +183,10 @@ Now, you'll notice that if you click the link, you'll be taken to page 2 or what
 
 That's it for this section of Building A Blog With Gatsby.
 
-In the next section, we'll deal with writing blog posts using markdown(**.mdx** - which allows us to use React components in markdown) and we will create post previews. The next section will also contain some GraphQL.
+You should take some time to look through the code of the pages, it's not really necessary but it will allow you to learn faster.
+
+In the next section, we'll deal with writing blog posts using markdown (with the extension **.mdx** which allows us to use React components in markdown) and we will create post previews.
+
+The next section will also contain some GraphQL.
 
 Stay Tuned!
