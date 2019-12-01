@@ -21,3 +21,19 @@ collections:
       - { name: excerpt, label: Excerpt }
       - { name: image, label: Image, widget: image, default: "", required: false }
       - { name: body, label: Body, widget: markdown }
+
+  - name: Unfinished Blog Posts
+    label: Unfinished Blog Posts
+    folder: Unfinished Blog Posts
+    create: true
+    format: "frontmatter"
+    extension: "mdx"
+    fields:
+      - { name: slug, label: Path(slug) }
+      - { name: date, label: Date, widget: date, format: "DD MMMM, YYYY" }
+      - { name: dateForSorting, label: Date For Sorting, widget: date}
+      - { name: title, label: Title }
+      - { name: tags, label: Tags }
+      - { name: excerpt, label: Excerpt }
+      - { name: image, label: Image, widget: image, default: "", required: false }
+      - { name: body, label: Body, widget: markdown }

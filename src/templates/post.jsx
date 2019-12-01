@@ -27,11 +27,14 @@ const PostTemplate = ({ data: { mdx: post } }) => {
                 margin: 2rem 1rem 1rem 1rem;
                 font-family: "Roboto mono";
                 font-weight: normal;
+                user-select: none;
+                
                 /** */
             `}>
                 {post.frontmatter.title}</h1>
             <p css = {css`
                 text-align: center;
+                user-select: none;
                 /** */
             `}>
                 {post.frontmatter.date}
