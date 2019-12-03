@@ -3,6 +3,9 @@ module.exports = {
     title: `KatanaBlog | Technical articles about tech`,
     description: `Technical articles about tech`,
     author: `Yusuff Faruq`,
+    twitterUsername: "@faruqyusuffG",
+    image: "/assets/luck.svg",
+    url: "https://thekatana.tech"
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

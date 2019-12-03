@@ -43,7 +43,7 @@ const TagContainer = styled("div")`
 `;
 
 const PostPreview = ({ post }) => {
-    const tags = post.tags.split(",");
+    const tags = post.tags;
     
     return (
         <Post>

@@ -17,7 +17,7 @@ collections:
       - { name: date, label: Date, widget: date, format: "DD MMMM, YYYY" }
       - { name: dateForSorting, label: Date For Sorting, widget: date}
       - { name: title, label: Title }
-      - { name: tags, label: Tags }
+      - { name: tags, label: Tags, widget: "list", default: ["Blog Post"], field: {label: "Tag", name: "tag_name", widget: "text"},required: false }
       - { name: excerpt, label: Excerpt }
       - { name: image, label: Image, widget: image, default: "", required: false }
       - { name: body, label: Body, widget: markdown }
@@ -33,7 +33,7 @@ collections:
       - { name: date, label: Date, widget: date, format: "DD MMMM, YYYY" }
       - { name: dateForSorting, label: Date For Sorting, widget: date}
       - { name: title, label: Title }
-      - { name: tags, label: Tags }
+      - { name: tags, label: Tags, widget: "list", default: ["Blog Post"], field: {label: "Tag", name: "tag_name", widget: "text"}, required: false }
       - { name: excerpt, label: Excerpt }
       - { name: image, label: Image, widget: image, default: "", required: false }
       - { name: body, label: Body, widget: markdown }
