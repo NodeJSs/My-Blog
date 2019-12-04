@@ -56,6 +56,14 @@ function SEO({ description, lang, meta, title }) {
           content: `website`,
         },
         {
+          name: "og:image",
+          content: site.siteMetadata.image
+        },
+        {
+          property: `og:url`,
+          content: site.siteMetadata.url,
+        },
+        {
           name: `twitter:card`,
           content: `summary_large_image`,
         },
