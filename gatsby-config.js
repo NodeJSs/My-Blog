@@ -4,7 +4,7 @@ module.exports = {
     description: `Technical articles about tech`,
     author: `Yusuff Faruq`,
     twitterUsername: "@faruqyusuffG",
-    image: "/assets/luck.svg",
+    image: "https://res.cloudinary.com/dqcsk8rsc/image/upload/q_auto/v1574354900/luck_pjsrvs.svg",
     url: "https://thekatana.tech"
   },
   plugins: [
@@ -26,7 +26,7 @@ module.exports = {
         name: `KatanaBlog`,
         short_name: `KatanaBlog`,
         start_url: `/`,
-        background_color: `#fb9879`,
+        background_color: `#1D282E`,
         theme_color: `#fb9879`,
         display: `minimal-ui`,
         icon: `src/images/luck.svg`, // This path is relative to the root of the site.
