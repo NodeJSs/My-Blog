@@ -1,12 +1,11 @@
 import React from "react"
-import { Link } from "gatsby"
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 import {css} from "@emotion/core";
 import styled from "@emotion/styled";
 import PostPreview from "../components/PostPreview";
 import usePosts from "../hooks/use-posts";
+import Posts from "../components/Posts";
 
 const IconDiv = styled("div")`
   display: flex;
@@ -18,17 +17,11 @@ const IconDiv = styled("div")`
   img{
     height: 40px;
     width: 40px;
-  }
-`;
+    transition: transform 0.5s;
 
-const Posts = styled("div")`
-  
-  width: 80%;
-  max-width: 600px;
-  margin: 2rem auto 0 auto;
-
-  @media (max-width: 600px){
-    width: 90%;
+    :hover{
+      transform: scale(1.25);
+    }
   }
 `;
 
@@ -52,6 +45,11 @@ const IndexPage = () => {
         height: 120px;
         width: 110px;
         margin: 0rem auto 1rem auto;
+        transition: transform 0.5s;
+
+        :hover{
+          transform: rotate(180deg);
+        }
       }
 
       > h1{
@@ -74,7 +72,7 @@ const IndexPage = () => {
         <a href="https://github.com/NodeJSs"><img src="https://res.cloudinary.com/dqcsk8rsc/image/upload/q_auto/v1574354899/Github_s8q0hg.svg" alt=""/></a>
       </IconDiv>
 
-      <Posts>
+      <Posts >
         {posts.map(
           post => <PostPreview post = {post}></PostPreview>
         )}

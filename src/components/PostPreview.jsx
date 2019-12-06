@@ -2,7 +2,7 @@ import React from "react";
 import { css } from "@emotion/core";
 import styled from "@emotion/styled";
 import { Link } from "gatsby";
-import Tag from "./tag";
+import Tag from "./Tag";
 
 const Post = styled("div")`
     border: 1px solid #AFAFAF;
@@ -40,6 +40,7 @@ const TagContainer = styled("div")`
     display: flex;
     justify-content: flex-start;
     flex-wrap:wrap;
+    
 `;
 
 const PostPreview = ({ post }) => {
