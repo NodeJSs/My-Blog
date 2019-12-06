@@ -1,0 +1,56 @@
+---
+slug: building-a-blog-using-gatsby-2
+date: '04 December, 2019'
+dateForSorting: 2019-12-04T20:06:20.249Z
+title: Building a Blog with Gatsby - 2
+tags:
+  - gatsby
+  - react
+  - JavaScript
+excerpt: "This is the second part of the Building A Blog with Gatsby series. Let's go\U0001F680"
+image: /assets/gatsby-image.jpeg
+---
+Welcome to the second part of the Building A Blog With Gatsby Series.
+
+In the first section, we built a simple Gatsby site that supported navigation between two pages.
+
+In this section, we are going to create blog posts in **.mdx** and display a post preview for each post on the Home page.
+
+Let's Go! 🚀🚀🚀
+
+## MDX
+
+Let's talk about **mdx.** MDX is a file format that allows you to place React components (JSX) in markdown files. That's simply what it is.
+
+Now we will create a folder called Blog Posts in the root directory of our project. Inside this folder, create 3 files with the extension **.mdx**. For simplicity sake, I'll call my files first.mdx, second.mdx and third.mdx. Our project's structure should look like this
+
+```
+- cache
+- src
+- node_modules
+- public
+- Blog Posts
+    - first.mdx
+    - second.mdx
+    - third.mdx
+```
+
+### Plugins
+
+Now out of the box, gatsby doesn't support mdx. We will have to install a plugin to use mdx. Plugins are an important part of Gatsby and they give gatsby extra strength to do more things.
+
+The plugin we will use is **gatsby-plugin-mdx**.
+
+gatsby-plugin-mdx allows us to use mdx files in our Gatsby project.
+
+To install gatsby-plugin-mdx with npm, run this in your terminal:
+
+```
+npm install --save gatsby-plugin-mdx @mdx-js/mdx @mdx-js/react
+```
+
+To install with yarn, 
+
+```
+yarn add gatsby-plugin-mdx @mdx-js/mdx @mdx-js/react
+```
