@@ -2,7 +2,7 @@ import React from "react";
 import { css } from "@emotion/core";
 import styled from "@emotion/styled";
 import { Link } from "gatsby";
-import Tag from "./Tag";
+import Tag from "./tag";
 
 const Post = styled("div")`
     border: 1px solid #AFAFAF;
