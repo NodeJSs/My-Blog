@@ -4,7 +4,7 @@ module.exports = {
     description: `Technical articles about tech`,
     author: `Yusuff Faruq`,
     twitterUsername: "@faruqyusuffG",
-    image: "/assets/luck.svg",
+    image: `${__dirname}/static/assets/luck.svg`,
     url: "https://thekatana.tech"
   },
   plugins: [
