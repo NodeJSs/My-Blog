@@ -13,6 +13,7 @@ query($slug: String!){
         slug
         title
         date
+        image
       }
       body
     }
@@ -23,7 +24,7 @@ const PostTemplate = ({ data: { mdx: post } }) => {
 
     return (
         <PostLayout>
-            <SEO title = {post.frontmatter.title} />
+            <SEO title = {post.frontmatter.title} image = {post.frontmatter.image} pathname = {post.frontmatter.slug}/>
             <h1 css = {css`
                 text-align:center;
                 margin: 2rem 1rem 1rem 1rem;
