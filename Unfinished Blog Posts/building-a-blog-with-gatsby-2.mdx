@@ -148,3 +148,69 @@ To access your GraphiQL, make sure your server is running and visit [this link](
 You should be taken to a page like this:
 
 ![GraphiQL](/assets/graphiql.jpg "GraphiQL")
+
+This is where we can make different queries and see the results instantly before using them in our code.
+
+Making queries is easy though it might take some time to get used to.
+
+First, we will query for all our MDX files. We will also use the data in the frontmatter of each of them.
+
+Simply, type this in the GraphiQL
+
+```graphql
+{
+  allMdx {
+    nodes {
+      frontmatter {
+        Author
+        Topic
+        title
+      }
+    }
+  }
+}
+```
+
+As you can see, we queried for all the MDX files exposed to the data layer using **allMdx**. We then queried for the nodes which gives us an array of all mdx files but only the specific data we requested for which, in this case, is frontmatter. Under the frontmatter, we queried for the **Author**, **Topic** and **Title.**
+
+You should a result like this
+
+```graphql
+{
+  "data": {
+    "allMdx": {
+      "nodes": [
+        {
+          "frontmatter": {
+            "Author": "Faruq",
+            "Topic": "Gatsby",
+            "title": "First Blog Post"
+          }
+        },
+        {
+          "frontmatter": {
+            "Author": "Author 2",
+            "Topic": "React",
+            "title": "Second Blog Post"
+          }
+        },
+        {
+          "frontmatter": {
+            "Author": "Author 3",
+            "Topic": "Web Development",
+            "title": "Third Blog Post"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+As you can see, graphql pulled the Author, Topic and Title of all our MDX files.
+
+Now we are going to grab this data into our code and use it to generate post previews in the next section of this series.
+
+Stay Tuned.
+
+If you have any questions, you can reach out to me on Twitter.
