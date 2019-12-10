@@ -69,7 +69,7 @@ const IndexPage = () => {
 
         <IconDiv>
           <a href="https://twitter.com/faruqyusuffG"><img title = "My Twitter" src="https://res.cloudinary.com/dqcsk8rsc/image/upload/q_auto/v1574354899/Twitter_2_oebglr.svg" alt="" /></a>
-          <a href="www.linkedin.com/in/faruq-gbolahan-yusuff-073712190"><img title = "My LinkedIn" src="https://res.cloudinary.com/dqcsk8rsc/image/upload/q_auto/v1574354901/LinkedIn_cpstve.svg" alt="" /></a>
+          <a href="https://www.linkedin.com/in/faruq-gbolahan-yusuff-073712190"><img title = "My LinkedIn" src="https://res.cloudinary.com/dqcsk8rsc/image/upload/q_auto/v1574354901/LinkedIn_cpstve.svg" alt="" /></a>
           <a href="https://www.instagram.com/unreal_photos_/?hl=en"><img title = "My Instagram" src="https://res.cloudinary.com/dqcsk8rsc/image/upload/q_auto/v1574354899/Instagram_1_xipdum.svg" alt="" /></a>
           <a href="https://github.com/NodeJSs">
             <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 20 20" version="1.1">
