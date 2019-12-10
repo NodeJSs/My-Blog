@@ -1,0 +1,181 @@
+---
+slug: building-a-blog-using-gatsby-3
+date: '10 December, 2019'
+dateForSorting: 2019-12-10T21:10:17.417Z
+title: Building a Blog with Gatsby - 3
+tags:
+  - gatsby
+  - react
+  - JavaScript
+excerpt: "This is the third section of the building a blog with Gatsby series. Let's go\U0001F525\U0001F680."
+image: /assets/gatsby-image.jpeg
+---
+Welcome to the third section of the Building a blog with Gatsby Series.
+
+In the last section, we grabbed frontmatter data from our Blog Posts using GraphQL.
+
+In this section, we are going to create post previews of each blog posts and display them on the home page.
+
+Let's get started!!
+
+### Creating a post preview component
+
+We are going to create a very simple post preview component so create a file in your components folder called **PostPreview.jsx**.
+
+```jsx
+import React from "react";
+
+const postPreviewStyle = {
+    border: "1px solid #afafaf",
+    padding: "1.5rem 0.5rem",
+    borderRadius: "5px",
+    margin: "1rem 0",
+}
+
+const PostPreview = ({title, author,topic}) => {
+    return(
+        <div style = {postPreviewStyle}>
+            <h1>First Blog Post</h1>
+            <p>By Faruq</p>
+            <p>Topic: Gatsby</p>
+        </div>
+    )
+}
+
+export default PostPreview;
+```
+
+That's our very simple PostPreview component. We will replace the placeholder text with real data from our blog posts. We will get this data from the props object of our component which was destructured into title, author and topic. I used jsx inline styling, you can use emotion or any other preferred method of styling. If you are using emotion, there's a gatsby plugin for emotion so you should check that out.
+
+### Using Frontmatter data
+
+ Now we are going to use the data we queried for in the last section.
+
+We are going to import **useStaticQuery** and **graphql** from **gatsby** into our index.js page.
+
+```jsx
+import { graphql, useStaticQuery } from "gatsby";
+```
+
+Now to grab the data from the query, we will use the useStaticQuery hook inside the IndexPage component.
+
+```jsx
+const data = useStaticQuery(graphql`
+    query MyQuery {
+      allMdx {
+        nodes {
+          frontmatter {
+            Author
+            Topic
+            title
+          }
+        }
+      }
+    }
+  `);
+```
+
+Now we can access the array of frontmatter data using **data.allMdx.nodes**. We can then map over the array and return a post preview for each blog post.
+
+```
+import React from "react"
+import { Link } from "gatsby"
+import PostPreview from "../components/PostPreview";
+import Layout from "../components/layout"
+import Image from "../components/image"
+import SEO from "../components/seo"
+import { graphql, useStaticQuery } from "gatsby";
+
+
+
+const IndexPage = () => {
+  const data = useStaticQuery(graphql`
+    query MyQuery {
+      allMdx {
+        nodes {
+          frontmatter {
+            Author
+            Topic
+            title
+          }
+        }
+      }
+    }
+  `);
+  const posts = data.allMdx.nodes;
+  return (
+    <Layout>
+      <SEO title="Home" />
+      <h1>Welcome to my Blog</h1>
+      <p>I welcome you</p>
+      <p>Welcome once again! <span role="img">😉</span></p>
+      <Link to="/page-2">Go to page 2</Link>
+      
+      {posts.map(
+        (post) => <PostPreview
+               title = {post.frontmatter.title}
+               author = {post.frontmatter.Author}
+               topic = {post.frontmatter.Topic}/>
+      )}
+    </Layout>
+  )
+}
+
+export default IndexPage
+```
+
+Now that is the code for our Index page. As you can see, we stored the array of blog posts in a variable called **posts.** We then mapped over the posts array and returned a PostPreview component. We also set the props to their appropriate values.
+
+Now we will edit the PostPreview component to display the actual data in the props.
+
+```
+const PostPreview = ({ title, author, topic }) => {
+    return (
+        <div style={postPreviewStyle}>
+            <h1>{title}</h1>
+            <p>{author}</p>
+            <p>Topic: {topic}</p>
+        </div>
+    )
+}
+```
+
+Now when you run `npm run develop`, you should see post previews of all 3 blog posts.
+
+## Generating Pages for each Blog Post
+
+Now we are going to generate pages for each blog post.
+
+To do that we will go to our **gatsby-node.js** file.
+
+For this, we use gatsby's createPages API to create our pages.
+
+```
+exports.createPages = async ({actions, graphql, reporter}) => {
+    const result = await graphql(`
+        query MyQuery {
+            allMdx {
+                nodes {
+                    frontmatter {
+                        title
+                    }
+                }
+            }
+        }
+    `);
+
+    if(result.errors){
+        reporter.panic("failed to create posts", results.errors);
+    }
+    const blogPosts = result.data.allMdx.nodes;
+    blogPosts.forEach(post => {
+        actions.createPage({
+            path: post.frontmatter.title,
+            component: require.resolve("./src/templates/post.jsx"),
+            context: {
+                title: post.frontmatter.slug
+            }
+        })
+    });
+}
+```
