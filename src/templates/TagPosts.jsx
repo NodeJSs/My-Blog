@@ -1,3 +1,4 @@
+/**@jsx jsx */
 import React from "react";
 import PostLayout from "../components/postLayout";
 import SEO from "../components/seo"
@@ -5,6 +6,7 @@ import { css } from "@emotion/core";
 import { graphql } from "gatsby";
 import PostPreview from "../components/PostPreview";
 import Posts from "../components/Posts";
+import {jsx} from "theme-ui";
 
 export const query = graphql`
         query($tagFor: [String]){
@@ -29,14 +31,19 @@ const TagPosts = ({ data: {allMdx: {nodes: tagPosts}}, pageContext: {tagFor} }) 
 
     return (
         <PostLayout>
-            <h1 css = {css`
-                text-transform: capitalize;
-                text-align: center;
-                margin: 1.5rem 0;
-                font-family: "Roboto mono";
-                font-weight: normal;
+            <SEO title = {`Tag - ${tagFor}`} />
+            <h1 sx = {{
+                textTransform: "capitalize",
+                textAlign: "center",
+                margin: "1.5rem auto",
+                fontFamily: "Open Sans",
+                color: "articleTextColor",
+                fontSize: "150%",
+                width: "70%",
+                
+                fontWeight: "normal",
                 /** */
-            `}>
+            }}>
                 {`My Articles on ${tagFor}`}
             </h1>
             {

@@ -11,6 +11,8 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-emotion`,
+    `gatsby-plugin-theme-ui`,
+    `gatsby-theme-ui-blog`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

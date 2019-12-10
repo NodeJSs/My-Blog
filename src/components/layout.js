@@ -4,14 +4,19 @@
  *
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
-
+/**@jsx jsx */
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import Footer from "./footer";
 import Header from "./header"
 import "./layout.css"
+import {jsx} from "theme-ui";
+
 import { Global, css } from "@emotion/core";
+
+const MainDarkModeColor = "#334149";
+const MainLightModeColor = "FFFFFF";
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -45,7 +50,10 @@ const Layout = ({ children }) => {
           height: 100vh;
       `}>
         <Header siteTitle={data.site.siteMetadata.title} css={css`grid-area: header;`} />
-        <main css={css`grid-area: main; background-color: #fff;`}>{children}</main>
+        <main sx={{
+          gridArea: "main",
+          backgroundColor: "body",
+          }}>{children}</main>
         <Footer css={css`grid-area: footer;`} />
       </div>
 

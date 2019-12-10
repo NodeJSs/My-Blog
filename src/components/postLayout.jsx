@@ -5,9 +5,10 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
+/**@jsx jsx */
 import PropTypes from "prop-types"
-
+import React from "react";
+import {jsx} from "theme-ui";
 import Footer from "./footer";
 import Header from "./postheader"
 import "./layout.css"
@@ -54,16 +55,16 @@ const PostLayout = ({ children }) => {
           height: 100vh;
       `}>
         <Header css={css`grid-area: header;`} />
-        <main css={css`
-            grid-area: main;
-            background-color: white;
-            text-align: justify;
+        <main sx={{
+            gridArea: "main",
+            backgroundColor: "articlePageBodyColor",
+            textAlign: "justify",
 
-            h2,h3,h4,h5,h6{
-              text-align: left;
+            "h2,h3,h4,h5,h6": {
+              textAlign: "left",
             }
             
-        `}>
+        }}>
             {children}
         </main>
         <Footer css={css`grid-area: footer;`} />

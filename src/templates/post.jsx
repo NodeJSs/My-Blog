@@ -1,4 +1,5 @@
-import React from "react";
+/**@jsx jsx */
+import {jsx} from "theme-ui";
 import { graphql } from "gatsby";
 import { css } from "@emotion/core";
 import { MDXRenderer } from "gatsby-plugin-mdx";
@@ -14,6 +15,7 @@ query($slug: String!){
         title
         date
         image
+        excerpt
       }
       body
     }
@@ -23,36 +25,43 @@ const PostTemplate = ({ data: { mdx: post } }) => {
     
 
     return (
-        <PostLayout>
-            <SEO title = {post.frontmatter.title} image = {post.frontmatter.image} pathname = {post.frontmatter.slug}/>
-            <h1 css = {css`
-                text-align:center;
-                margin: 2rem 1rem 1rem 1rem;
-                font-family: "Roboto mono";
-                font-weight: normal;
-                user-select: none;
+        <PostLayout >
+            <SEO title = {post.frontmatter.title} image = {post.frontmatter.image} pathname = {post.frontmatter.slug} description = {post.frontmatter.excerpt}/>
+            <h1 sx = {{
+                textAlign: "center",
+                margin: "2rem 1rem 1rem 1rem",
+                fontFamily: "Roboto mono",
+                fontWeight: "normal",
+                userSelect: "none",
+                color: "articleTextColor",
                 
                 /** */
-            `}>
+            }}>
                 {post.frontmatter.title}</h1>
-            <p css = {css`
-                text-align: center;
-                user-select: none;
+            <p sx = {{
+                textAlign: "center",
+                userSelect: "none",
+                color: "articleTextColor",
                 /** */
-            `}>
+            }}>
                 {post.frontmatter.date}
             </p>
-            <div css = {css`
-                width: 95%;
-                max-width: 800px;
-                font-family: "Open sans";
-                margin: 0 auto 2rem auto;
-                border: 1px solid #AFAFAF;
-                border-radius: 6px;
-                padding: 1.5rem;
-                user-select: none;
+            <div sx = {{
+                width: "95%",
+                maxWidth: "800px",
+                backgroundColor: "articleBodyColor",
+                fontFamily: "Open sans",
+                margin: "0 auto 2rem auto",
+                border: "1px solid",
+                borderColor: "articleBorderColor",
+                borderRadius: "6px",
+                color: "articleTextColor",
+                padding: "1.5rem",
+                userSelect: "none",
+
                 
-            `}>
+                
+            }}>
             <MDXRenderer>
                 {post.body}
             </MDXRenderer>

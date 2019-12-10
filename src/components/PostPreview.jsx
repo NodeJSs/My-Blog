@@ -1,11 +1,15 @@
-import React from "react";
+/**@jsx jsx */
+
 import { css } from "@emotion/core";
 import styled from "@emotion/styled";
 import { Link } from "gatsby";
 import Tag from "./tag";
+import {jsx} from "theme-ui";
+
+
 
 const Post = styled("div")`
-    border: 1px solid #AFAFAF;
+    
     box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.19);
     border-radius: 6px;
     text-align: left;
@@ -47,19 +51,25 @@ const PostPreview = ({ post }) => {
     const tags = post.tags;
     
     return (
-        <Post>
+        <Post sx = {{
+            borderWidth: "1px",
+            borderStyle: "solid",
+            borderColor: "postBorderColor",
+            backgroundColor: "postPreviewBackground",
+           
+        }}>
             {post.image ? <img src={post.image} alt={post.title} /> : ""}
             <div css = {css`
                 padding: 0.5rem 0;
                 /** */
             `}>
-                <p css = {css`
-                    padding: 0 1rem;
-                    color: #000;
-                    font-size: 110%;
-                    margin-bottom: 0.5rem;
+                <p sx = {{
+                    padding: "0 1rem",
+                    color: "postBody",
+                    fontSize: "110%",
+                    marginBottom: "0.5rem",
                     /** */
-                `}>
+                }}>
                     {post.title}
                 </p>
 
@@ -67,17 +77,19 @@ const PostPreview = ({ post }) => {
 
                 <PostBody>
 
-                    <p css={css`
-                    font-family: "Open sans";
-                    font-size: 93%;
+                    <p sx={{
+                    fontFamily: "Open sans",
+                    fontsize: "93%",
+                    color: "postBody",
                     /** */
-                    `}>
+                    }}>
                         {post.excerpt}
                     </p>
-                    <p css = {css`
-                        font-size: 87%;
+                    <p sx = {{
+                        fontSize: "87%",
+                        color: "postDateColor"
                         /** */
-                    `}>
+                    }}>
                         {`Posted ${post.date}`}
                     </p>
                     <TagContainer>
