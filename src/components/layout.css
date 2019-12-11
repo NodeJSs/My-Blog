@@ -20,7 +20,6 @@ code[class*="language-"]{
 
 @media (max-width:654px){
   code[class*="language-"]{
-    white-space: pre-wrap;
     margin: 0 auto;
   }
 }

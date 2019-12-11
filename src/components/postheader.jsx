@@ -19,29 +19,29 @@ const Header = () => (
             margin: "0",
         },
         p: {
-            margin: "0",
+            margin: "0 0.5rem",
             fontFamily: "Roboto Mono",
         }
     }}>
-         <span css={css`
-        font-size: 150%;
-        font-weight: bold;
-        cursor: pointer
-        
-        /** */
 
-        `}>
-            <Link sx={{
+        <Link sx={{
             textDecoration: "none",
             color: "arrowColor",
             display: "flex",
             alignItems: "center"
         }}
-                to="/">
-                &larr;<img src="https://res.cloudinary.com/dqcsk8rsc/image/upload/q_auto/v1574354900/luck_pjsrvs.svg" alt="" />
-            </Link>
+            to="/">
+            <img src="https://res.cloudinary.com/dqcsk8rsc/image/upload/q_auto/v1574354900/luck_pjsrvs.svg" alt="" />
+            <p sx={{
+                color: "arrowColor",
+                
 
-        </span>
+            }}>
+                Go home
+                </p>
+        </Link>
+
+
         <ThemeToggler />
     </header>
 )

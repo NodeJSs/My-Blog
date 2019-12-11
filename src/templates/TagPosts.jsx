@@ -46,10 +46,6 @@ const TagPosts = ({ data: {allMdx: {nodes: tagPosts}}, pageContext: {tagFor} }) 
             }}>
                 {`My Articles on ${tagFor}`}
             </h1>
-            {
-                //<code>{JSON.stringify(props, null, 10)}</code>
-                console.log(tagPosts)
-            }
 
             <Posts>
                 {

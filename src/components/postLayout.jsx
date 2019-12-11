@@ -59,7 +59,8 @@ const PostLayout = ({ children }) => {
             gridArea: "main",
             backgroundColor: "articlePageBodyColor",
             textAlign: "justify",
-
+            minWidth: "100%",
+            maxWidth: "100%",
             "h2,h3,h4,h5,h6": {
               textAlign: "left",
             }

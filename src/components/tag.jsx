@@ -1,13 +1,11 @@
 /**@jsx jsx */
 import React from "react";
 import { Link } from "gatsby";
-import { css } from "@emotion/core";
 import { jsx } from "theme-ui";
 
 
 
-const TagBackgroundLightMode = "#E8E8E8";
-const TagBackgroundDarkMode = "#334149";
+
 
 const Tag = ({ tagFor }) => {
     return (
