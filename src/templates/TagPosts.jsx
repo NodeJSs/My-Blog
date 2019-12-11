@@ -31,7 +31,7 @@ const TagPosts = ({ data: {allMdx: {nodes: tagPosts}}, pageContext: {tagFor} }) 
 
     return (
         <PostLayout>
-            <SEO title = {`Tag - ${tagFor}`} />
+            <SEO title = {`Tag`} image = {tagFor === "gatsby"? "/assets/gatsby-image.jpeg": ""}/>
             <h1 sx = {{
                 textTransform: "capitalize",
                 textAlign: "center",

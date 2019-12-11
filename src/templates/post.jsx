@@ -26,7 +26,7 @@ const PostTemplate = ({ data: { mdx: post } }) => {
 
     return (
         <PostLayout >
-            <SEO title = {post.frontmatter.title} image = {`https://thekatana.tech${post.frontmatter.image}`} pathname = {post.frontmatter.slug} description = {post.frontmatter.excerpt}/>
+            <SEO title = {post.frontmatter.title} image = {`${post.frontmatter.image}`} pathname = {post.frontmatter.slug} description = {post.frontmatter.excerpt}/>
             <h1 sx = {{
                 textAlign: "center",
                 margin: "2rem 1rem 1rem 1rem",
