@@ -4,7 +4,7 @@ module.exports = {
     description: `Technical articles about tech`,
     author: `Yusuff Faruq`,
     twitterUsername: "@faruqyusuffG",
-    image: `https://thekatana.tech/assets/TwitterCoverImage.png`,
+    image: `/assets/TwitterCoverImage.png`,
     url: "https://thekatana.tech"
   },
   plugins: [

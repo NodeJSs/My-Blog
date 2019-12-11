@@ -32,9 +32,10 @@ function SEO({ description, title, image, pathname }) {
           image: `${siteUrl}${image || defaultImage}`,
           url: `${siteUrl}${pathname || '/'}`,
         }
+        console.log(seo.image);
         return (
           <>
-            <Helmet title={seo.title} titleTemplate={`%s - ${seo.title}`}>
+            <Helmet title={seo.title} titleTemplate={`${seo.title}`}>
               <meta name="description" content={seo.description} />
               <meta name="image" content={seo.image} />
               {seo.url && <meta property="og:url" content={seo.url} />}
