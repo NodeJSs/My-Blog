@@ -34,7 +34,7 @@ const IndexPage = () => {
   return (
 
     <Layout>
-      <SEO />
+      <SEO image = "/assets/TwitterCoverImage.png"/>
       <div css={css`
       display: flex;
       flex-direction: column;
