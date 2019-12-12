@@ -173,9 +173,51 @@ exports.createPages = async ({actions, graphql, reporter}) => {
             path: post.frontmatter.title,
             component: require.resolve("./src/templates/post.jsx"),
             context: {
-                title: post.frontmatter.slug
+                title: post.frontmatter.title
             }
         })
     });
 }
+```
+
+As you can see, in our async function we grabbed the title of all our MDX files from the data layer. The **await** keyword basically means "Let's wait for the data we queried" and once that data is ready, we store it in the variable **results.** 
+
+We also checked for errors then we grabbed the nodes (array of the data we need) and assigned it to the variable **blogPosts.**
+
+Here comes the interesting part!
+
+For each title we grabbed, we created a page and let the path to that page be the title. We also gave each page a template component which we will create soon. This template component which we called **post.jsx** dictates how our pages will look like. After, we gave each page a context. Context refers to whatever data you want to pass to each page. We put the title of each page in our context and this allows us to uniquely identify each blog post since all posts have different titles. Ideally, you would use a slug(unique identifier) here.
+
+So a GraphQL variable called **title** will be passed to each page.
+
+Now we will create our post component.
+
+### Creating post.jsx
+
+For post.jsx, we can start with a simple functional component.
+We will use our layout component.
+
+```jsx
+import React from "react"
+import Layout from "../components/layout"
+
+const PostTemplate = () => {
+    return(
+        <Layout>
+        
+        </Layout>
+    )
+}
+
+export default PostTemplate;
+```
+
+Now we will use our GraphQL variable, title. As I said before, each page will have a GraphQL variable called **title.**
+
+We will query some data with GraphQL and that data will become available to our PostTemplate component as part of its props.
+
+Let's get started!
+
+```
+
 ```
