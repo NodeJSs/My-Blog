@@ -45,7 +45,7 @@ exports.createPages = async ({actions, graphql, reporter}) => {
                 slug: post.frontmatter.slug
             }
         })
-    })
+    });
 
 
 

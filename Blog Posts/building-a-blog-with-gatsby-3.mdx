@@ -7,14 +7,14 @@ tags:
   - gatsby
   - react
   - JavaScript
-excerpt: "This is the third section of the building a blog with Gatsby series. Let's go\U0001F525\U0001F680."
+excerpt: "This is the third and final section of the building a blog with Gatsby series. Let's go\U0001F525\U0001F680."
 image: /assets/gatsby-image.jpeg
 ---
 Welcome to the third section of the Building a blog with Gatsby Series.
 
 In the last section, we grabbed frontmatter data from our Blog Posts using GraphQL.
 
-In this section, we are going to create post previews of each blog posts and display them on the home page.
+In this section, we are going to create post previews of each blog posts and display them on the home page. We are also going to create pages for each blog post.
 
 Let's get started!!
 
@@ -49,7 +49,7 @@ That's our very simple PostPreview component. We will replace the placeholder te
 
 ### Using Frontmatter data
 
- Now we are going to use the data we queried for in the last section.
+Now we are going to use the data we queried for in the last section.
 
 We are going to import **useStaticQuery** and **graphql** from **gatsby** into our index.js page.
 
@@ -77,7 +77,7 @@ const data = useStaticQuery(graphql`
 
 Now we can access the array of frontmatter data using **data.allMdx.nodes**. We can then map over the array and return a post preview for each blog post.
 
-```
+```jsx
 import React from "react"
 import { Link } from "gatsby"
 import PostPreview from "../components/PostPreview";
@@ -124,11 +124,11 @@ const IndexPage = () => {
 export default IndexPage
 ```
 
-Now that is the code for our Index page. As you can see, we stored the array of blog posts in a variable called **posts.** We then mapped over the posts array and returned a PostPreview component. We also set the props to their appropriate values.
+Now, that is the code for our Index page. As you can see, we stored the array of blog posts in a variable called **posts.** We then mapped over the posts array and returned a PostPreview component for each post. We also set the props to their appropriate values.
 
 Now we will edit the PostPreview component to display the actual data in the props.
 
-```
+```jsx
 const PostPreview = ({ title, author, topic }) => {
     return (
         <div style={postPreviewStyle}>
@@ -146,11 +146,11 @@ Now when you run `npm run develop`, you should see post previews of all 3 blog p
 
 Now we are going to generate pages for each blog post.
 
-To do that we will go to our **gatsby-node.js** file.
+To do that we will go to our **gatsby-node.js** file. If you don't have one, you can create an empty gatsby-node.js file in the root directory.
 
 For this, we use gatsby's createPages API to create our pages.
 
-```
+```JavaScript
 exports.createPages = async ({actions, graphql, reporter}) => {
     const result = await graphql(`
         query MyQuery {
@@ -182,7 +182,7 @@ exports.createPages = async ({actions, graphql, reporter}) => {
 
 As you can see, in our async function we grabbed the title of all our MDX files from the data layer. The **await** keyword basically means "Let's wait for the data we queried" and once that data is ready, we store it in the variable **results.** 
 
-We also checked for errors then we grabbed the nodes (array of the data we need) and assigned it to the variable **blogPosts.**
+We also checked for errors after which we grabbed the nodes (array of the data we need) and assigned it to the variable **blogPosts.**
 
 Here comes the interesting part!
 
@@ -195,7 +195,7 @@ Now we will create our post component.
 ### Creating post.jsx
 
 For post.jsx, we can start with a simple functional component.
-We will use our layout component.
+
 
 ```jsx
 import React from "react"
@@ -292,4 +292,4 @@ If you have any questions, please feel free to reach out to me on [twitter](http
 
 You can find the repo of this series [here](https://github.com/NodeJSs/Building-a-blog-with-Gatsby).
 
-You can find the link to the finished blog [here](https://katanablog-gatsby-blog.netlify.com/).
+You can find the finished blog [here](https://katanablog-gatsby-blog.netlify.com/).
