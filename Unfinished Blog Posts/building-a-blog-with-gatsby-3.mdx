@@ -218,6 +218,76 @@ We will query some data with GraphQL and that data will become available to our 
 
 Let's get started!
 
+```jsx
+export const data = graphql`
+    query ($title: String!) {
+        mdx(frontmatter: {title: {eq: $title}}) {
+            frontmatter {
+                title
+                Author
+                Topic
+            }
+            body
+        }
+    }
+  
+`;
 ```
 
+In the above query, we grabbed the mdx file whose title was equal to the GraphQL variable, title, that was passed to the page.
+We then grabbed the title, Author and Topic of that mdx file. We also grabbed the body of the mdx file which we will render using MDXRenderer from **gatsby-plugin-mdx.**
+
+Now we can access **data** using **props.data** inside our component. Now we will add some content in between our Header and Footer(which were provided by the layout component).
+
+```jsx
+const PostTemplate = ({ data: { mdx } }) => {
+    return (
+        <Layout>
+            <Link to = "/">&larr; Go Home</Link>
+            <h1>{mdx.frontmatter.title}</h1>
+            <p>{`Written by ${mdx.frontmatter.Author}`}</p>
+            <p>{mdx.frontmatter.Topic}</p>
+            <MDXRenderer>
+                {mdx.body}
+            </MDXRenderer>
+        </Layout>
+    );
+}
 ```
+
+Instead of using **props**  and having to write props.data.mdx.frontmatter.title to get our page title, I destructured props so now we just have to write mdx.frontmatter.title.
+
+Note: You should import the following at the top of the post.jsx file
+
+```jsx
+import React from "react";
+import { graphql } from "gatsby";
+import { MDXRenderer } from "gatsby-plugin-mdx";
+import {Link} from "gatsby";
+import Layout from "../components/layout";
+```
+
+Now we are almost done, all we need is a link to access the contents of each blog post. In your PostPreview.jsx component, make the necessary changes as shown below
+
+```jsx
+const PostPreview = ({ title, author, topic }) => {
+    return (
+        <div style={postPreviewStyle}>
+            <h1>{title}</h1>
+            <p>{author}</p>
+            <p>Topic: {topic}</p>
+            <Link to = {`/${title}`}>Read Post</Link> //add this line
+        </div>
+    )
+}
+```
+
+Since the path to each page is the title, I simply added a link which led to that path.
+
+## Now our blog is complete!!
+
+You have made this far!
+
+If you have any questions, please feel free to reach out to me on [twitter](https://twitter.com/faruqyusuffG).
+
+You can find the repo of this series [here](https://github.com/NodeJSs/Building-a-blog-with-Gatsby).
