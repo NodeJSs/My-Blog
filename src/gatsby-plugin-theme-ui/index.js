@@ -1,8 +1,6 @@
-//import base from "gatsby-theme-ui-blog/src/gatsby-plugin-theme-ui";
 
 export default {
-    //...base,
-    //initialColorMode: "light",
+    initialColorModeName: "light",
     colors: {
         body: "#fff",
         katanaLogo:"#000",
