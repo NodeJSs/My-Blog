@@ -25,7 +25,7 @@ const Post = styled("div")`
     > img{
         margin-bottom: 0;
         border-top-left-radius: 6px;
-        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
         width: 100%;
         max-height: 300px;
         display:block;
