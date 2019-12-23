@@ -14,7 +14,13 @@ query($slug: String!){
         slug
         title
         date
-        image
+        image {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
         excerpt
       }
       body

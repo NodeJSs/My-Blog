@@ -8,11 +8,23 @@ module.exports = {
     url: "https://thekatana.tech"
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-netlify-cms`,
-    `gatsby-plugin-emotion`,
-    `gatsby-plugin-theme-ui`,
-    `gatsby-theme-ui-blog`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        useMozJpeg: false,
+        stripMetadata: true,
+        defaultQuality: 75,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `BlogImages`,
+        path: `${__dirname}/static/assets`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -20,8 +32,25 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/Blog Posts`,
+        name: "Blog Posts",
+      },
+    },
+    
+    
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-netlify-cms`,
+    `gatsby-plugin-emotion`,
+    `gatsby-plugin-theme-ui`,
+    `gatsby-theme-ui-blog`,
+    `gatsby-plugin-netlify-cms-paths`,
+    
+    
+    
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -37,14 +66,6 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/Blog Posts`,
-        name: "Blog Posts",
-      },
-    },
-    
-    {
       resolve: `gatsby-plugin-mdx`,
       options: {
         defaultLayouts: {
@@ -55,13 +76,22 @@ module.exports = {
             resolve: `gatsby-remark-prismjs`,
             options: {},
           },
+          {
+            resolve: `gatsby-remark-relative-images`,
+          },
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              maxWidth: 590,
+            }
+          }
         ],
+        plugins: ["gatsby-remark-images"]
         
       },
-    }
-
-
-
+    },
+    
+    
 
   ],
 }

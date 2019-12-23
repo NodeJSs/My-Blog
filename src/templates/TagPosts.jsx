@@ -17,7 +17,13 @@ export const query = graphql`
                         title
                         date
                         dateForSorting(formatString: "D-M-Y")
-                        image
+                        image {
+                            childImageSharp {
+                              fluid {
+                                ...GatsbyImageSharpFluid_withWebp
+                              }
+                            }
+                          }
                         tags
                     }
                 }

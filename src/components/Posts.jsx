@@ -16,7 +16,7 @@ const StyledPosts = styled("div")`
 
   @media (max-width: 870px){
     grid-template-columns: 1fr;
-    width: 60%;
+    width: 70%;
   }
 
   @media (max-width: 600px){
