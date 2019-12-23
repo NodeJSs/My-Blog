@@ -41,7 +41,7 @@ const IndexPage = () => {
       justify-content: center;
       font-family: "Roboto mono";
       text-align: center;
-      max-width: 600px;
+      
       margin: 1.5rem auto;
 
       > img{
@@ -61,6 +61,8 @@ const IndexPage = () => {
       } 
       > p{
         padding: 0 1rem;
+        max-width: 600px;
+        margin: 0 auto 1rem auto;
       }
     `}>
         <img src="https://res.cloudinary.com/dqcsk8rsc/image/upload/q_auto/v1574358048/avatar_gmcueg.svg" alt="" />

@@ -34,7 +34,9 @@ const Layout = ({ children }) => {
       <Global styles={css`
         @import url('https://fonts.googleapis.com/css?family=Roboto Mono');
         @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-
+        html{
+          scroll-behaviour: smooth;
+        }
         body{
           margin: 5px;
           font-family: "Roboto mono";
