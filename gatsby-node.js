@@ -1,13 +1,35 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
 
-// You can delete this file if you're not using it
-
-exports.createPages = async ({actions, graphql, reporter}) => {
+const createPaginatedPages = require('gatsby-paginate');
+exports.createPages = async ({ actions, graphql, reporter }) => {
     const result = await graphql(`
+        query{
+            allMdx(sort: {fields: [frontmatter___dateForSorting], order: [DESC]}){
+                nodes{
+                    frontmatter{
+                        excerpt
+                        slug
+                        title
+                        date
+                        dateForSorting(formatString: "D-M-Y")
+                        image
+                        tags
+                    }
+                }
+            }
+        }
+    `);
+    const { createPage } = actions;
+
+    createPaginatedPages({
+        edges: result.data.allMdx.nodes,
+        createPage: createPage,
+        pageTemplate: "src/templates/index.js",
+        pageLength: 6,
+        pathPrefix: "",
+        context: {}
+    });
+
+    /*const result = await graphql(`
         query{
             allMdx{
                 nodes{
@@ -18,24 +40,28 @@ exports.createPages = async ({actions, graphql, reporter}) => {
                 }
             }
         }
-    `);
+    `);*/
 
     
-    if(result.errors){
+
+
+    
+
+    if (result.errors) {
         reporter.panic("failed to create posts", results.errors);
     }
     const tagsArray = [];
     result.data.allMdx.nodes.forEach(post => tagsArray.push(...post.frontmatter.tags));
-     const tags = new Set(tagsArray);
-     tags.forEach(tag => {
-         actions.createPage({
-             path: `tag/${tag}`,
-             component: require.resolve("./src/templates/TagPosts.jsx"),
-             context: {
-                 tagFor: tag
-             }
-         })
-     });
+    const tags = new Set(tagsArray);
+    tags.forEach(tag => {
+        actions.createPage({
+            path: `tag/${tag}`,
+            component: require.resolve("./src/templates/TagPosts.jsx"),
+            context: {
+                tagFor: tag
+            }
+        })
+    });
     const posts = result.data.allMdx.nodes;
     posts.forEach(post => {
         actions.createPage({

@@ -2,7 +2,6 @@
 import React from "react";
 import PostLayout from "../components/postLayout";
 import SEO from "../components/seo"
-import { css } from "@emotion/core";
 import { graphql } from "gatsby";
 import PostPreview from "../components/PostPreview";
 import Posts from "../components/Posts";
