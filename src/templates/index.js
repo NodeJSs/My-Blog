@@ -37,7 +37,7 @@ const IconDiv = styled("div")`
 if(presentDate.getMonth() === 11 && presentDate.getUTCDate() === 25){
   avatarImageSource = "https://res.cloudinary.com/dqcsk8rsc/image/upload/v1577268052/merry-christmas_mfolfq.png";
 }
-else if(presentDate.getMonth() === 1 && presentDate.getUTCDate() === 1){
+else if(presentDate.getMonth() === 0 && presentDate.getUTCDate() === 1){
   avatarImageSource = "https://res.cloudinary.com/dqcsk8rsc/image/upload/v1577269499/new_year_xogphr.png";
 }
 
