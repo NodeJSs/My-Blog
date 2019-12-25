@@ -31,10 +31,11 @@ const PostTemplate = ({ data: { mdx: post } }) => {
     <PostLayout>
       <SEO
         title={post.frontmatter.title}
-        image={`${post.frontmatter.image}`}
+        image={post.frontmatter.image.childImageSharp.fluid.src}
         pathname={post.frontmatter.slug}
         description={post.frontmatter.excerpt}
       />
+      
       <h1
         sx={{
           textAlign: "center",
