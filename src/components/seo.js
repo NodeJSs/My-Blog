@@ -11,10 +11,10 @@ import Helmet from "react-helmet"
 import { graphql, StaticQuery } from "gatsby"
 
 function SEO({ description, title, image, pathname }) {
-  return (<StaticQuery
-    query={query}
-    render={
-      ({
+  return (
+    <StaticQuery
+      query={query}
+      render={({
         site: {
           siteMetadata: {
             defaultTitle,
@@ -23,16 +23,16 @@ function SEO({ description, title, image, pathname }) {
             siteUrl,
             defaultImage,
             twitterUsername,
-          }
-        }
+          },
+        },
       }) => {
         const seo = {
           title: title || defaultTitle,
           description: description || defaultDescription,
           image: `${siteUrl}${image || defaultImage}`,
-          url: `${siteUrl}${pathname || '/'}`,
+          url: `${siteUrl}${pathname || "/"}`,
         }
-        console.log(seo.image);
+        console.log(seo.image)
         return (
           <>
             <Helmet title={seo.title} titleTemplate={`${seo.title}`}>
@@ -56,9 +56,8 @@ function SEO({ description, title, image, pathname }) {
             </Helmet>
           </>
         )
-      }
-    }
-  />
+      }}
+    />
   )
 }
 
@@ -73,10 +72,8 @@ const query = graphql`
         twitterUsername
       }
     }
-  }`;
-
-
-
+  }
+`
 
 SEO.defaultProps = {
   lang: `en`,
