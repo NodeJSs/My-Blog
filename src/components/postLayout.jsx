@@ -43,16 +43,17 @@ const PostLayout = ({ children }) => {
             font-size: 90%;
             overflow-x: auto;
           }
+          
         `}
       />
+      <div sx = {{backgroundColor: "articlePageBodyColor"}}>
         <Header
           css={css`
-            grid-area: header;
+            
           `}
         />
         <main
           sx={{
-            gridArea: "main",
             backgroundColor: "articlePageBodyColor",
             textAlign: "justify",
             minWidth: "100%",
@@ -64,11 +65,8 @@ const PostLayout = ({ children }) => {
         >
           {children}
         </main>
-        <Footer
-          css={css`
-            grid-area: footer;
-          `}
-        />
+        <Footer/>
+      </div>
     </>
   )
 }
