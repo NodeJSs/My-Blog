@@ -39,7 +39,7 @@ const PostTemplate = ({ data: { mdx: post } }) => {
       <h1
         sx={{
           textAlign: "center",
-          margin: "2rem 1rem 1rem 1rem",
+          padding: "2rem 1rem 1rem 1rem",
           fontFamily: "Roboto mono",
           fontWeight: "normal",
           userSelect: "none",

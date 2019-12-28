@@ -23,8 +23,9 @@ const PostLayout = ({ children }) => {
           @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
 
           body {
-            margin: 5px;
+            margin: 0;
             font-family: "Roboto mono";
+            border: 5px solid rgba(34, 48, 148, 0.7);
           }
           html {
           }
@@ -44,16 +45,6 @@ const PostLayout = ({ children }) => {
           }
         `}
       />
-      <div
-        css={css`
-          display: grid;
-          grid-template-areas: "header" "main" "footer";
-          grid-template-columns: 1fr;
-          grid-template-rows: auto 1fr auto;
-
-          height: 100vh;
-        `}
-      >
         <Header
           css={css`
             grid-area: header;
@@ -78,7 +69,6 @@ const PostLayout = ({ children }) => {
             grid-area: footer;
           `}
         />
-      </div>
     </>
   )
 }

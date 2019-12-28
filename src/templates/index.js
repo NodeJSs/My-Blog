@@ -58,7 +58,7 @@ const IndexPage = ({
           font-family: "Roboto mono";
           text-align: center;
 
-          margin: 1.5rem auto;
+          padding: 1.5rem auto;
 
           > img {
             height: 120px;
@@ -79,6 +79,7 @@ const IndexPage = ({
             padding: 0 1rem;
             max-width: 600px;
             margin: 0 auto 1rem auto;
+            line-height: 1.7rem;
           }
         `}
       >
@@ -91,9 +92,9 @@ const IndexPage = ({
           }}
         />
         <h1 sx={{ color: "katanaBlogText" }}>KatanaBlog</h1>
-        <p sx={{ color: "bioParagraph" }}>
+        <p sx={{ color: "bioParagraph"}}>
           A technical blog for tech stuff by Faruq, a web developer and Anime
-          lover from Nigeria{" "}
+          lover from Nigeria. <br /> I also capture moments in photographs📸
         </p>
 
         <IconDiv>
