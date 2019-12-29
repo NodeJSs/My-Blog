@@ -163,7 +163,7 @@ const IndexPage = ({
           sx={{
             position: "relative",
             width: "80%",
-            margin: "0 auto 1rem auto",
+            margin: "0 auto 2rem auto",
             a: {
               textDecoration: "none",
               color: "katanaBlogText",
