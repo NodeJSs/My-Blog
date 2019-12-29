@@ -48,7 +48,7 @@ const ImageBackground = styled(BackgroundImage)`
 
 const PostPreview = ({ post }) => {
   const tags = post.tags
-
+  
   return (
     <Post
       sx={{
@@ -87,7 +87,7 @@ const PostPreview = ({ post }) => {
         </p>
 
         {post.image ? "" : <hr />}
-
+        
         <PostBody>
           <p
             sx={{

@@ -35,7 +35,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     edges: result.data.allMdx.nodes,
     createPage: createPage,
     pageTemplate: "src/templates/index.js",
-    pageLength: 6,
+    pageLength: 4,
     pathPrefix: "",
     context: {},
   })
