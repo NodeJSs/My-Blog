@@ -21,7 +21,7 @@ const Footer = () => {
       <p style={{ margin: "0.5rem" }}>
         All articles are written by Yusuff Faruq
       </p>
-      <p style={{ margin: "0" }}>Copyright &copy; 2019</p>
+  <p style={{ margin: "0" }}>Copyright &copy; {new Date().getFullYear()}</p>
     </StyledFooter>
   )
 }
