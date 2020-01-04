@@ -19,3 +19,95 @@ PostCSS is a tool for transforming CSS with JavaScript. According to PostCSS's d
 "PostCSS takes a CSS file and provides an API to analyze and modify its rules (by transforming them into an Abstract Syntax Tree). This API can then be used by plugins to do a lot of useful things, e.g. to find errors automatically insert vendor prefixes."
 
 Put simply, PostCSS takes your CSS code and does something to it. This is done with the help of the various PostCSS plugins. PostCSS has more than 200 plugins such as Autoprefixer which adds vendor prefixes to your CSS and Stylelint which helps you avoid errors in your code.
+
+## Getting started with Autoprefixer
+
+This is one PostCSS plugin that I really love. As I stated earlier in the article, Autoprefixer adds vendor prefixes to your CSS code using values from \[Can I Use](https://caniuse.com/). 
+
+Before we move on, we need to know what vendor prefixes are.
+
+### What are Vendor Prefixes?
+
+Vendor prefixes are keywords such as "-moz-" which are placed before certain CSS properties or selectors. They allow developers to test certain CSS properties before those properties become official. Different browsers have different vendor prefixes. Some examples are:
+
+1. \-webkit- (Chrome, Safari, newer versions of Opera, almost all iOS browsers (including Firefox for iOS); basically, any WebKit based browser)
+2. \-moz- (Firefox)
+3. \-o- (Old, pre-WebKit, versions of Opera)
+4. \-ms- (Internet Explorer and Microsoft Edge)
+
+To use experimental properties, developers have to add the different vendor prefixes to make sure their CSS works well across different browsers. This can become a pain.
+
+With Autoprefixer, you don't need to worry about writing vendor prefixes in your CSS (you can even forget about them). Once you are done, Autoprefixer will apply vendor prefixes to your code using data based on current browser popularity and property support.
+
+This article will just be a simple demonstration of Autoprefixer works so if you need more information you should check out the [Autoprefixer documentation](https://github.com/postcss/autoprefixer).
+
+Let's get started!
+
+Create a new project folder and in your terminal, initialise a **package.json** using this command:
+
+```
+npm init -y
+```
+
+This will generate a package.json file in that directory.
+
+Now install PostCSS CLI and Autoprefixer:
+
+```
+npm install postcss-cli autoprefixer --save-dev
+```
+
+Now create a _postcss.config.js_ file in your root directory. This is where we will manage the different PostCSS plugins. Once you have done that, add this piece of code which will allow us to use Autoprefixer:
+
+_//postcss.config.js_
+
+```javascript
+module.exports = {
+    plugins: [
+        require("autoprefixer")
+    ],
+}
+```
+
+Autoprefixer has now been fully setup! We will proceed to create a CSS file where we will use an experimental CSS selector. Create a file called _main.css._ In this file, we will use the **::placeholder** selector. This selector selects form elements with placeholder text. It allows us to style placeholder text. Use it as follows:
+
+```css
+::placeholder {
+    color: gray;
+}
+```
+
+The above CSS changes the color of a placeholder text to gray. That is the only CSS code we will write. Now we will use Autoprefixer to generate vendor prefixes of that piece of code.
+
+In your terminal, run the following commmand:
+
+```
+npx postcss *.css --use autoprefixer -d build/
+```
+
+The above command will tell Autoprefixer to parse all files ending with **.css** in the root directory and store the output in a folder called **build.**
+
+Once you run that command, you should now have a build folder in the root directory of your project. That build folder should contain a file called _main.css_ with various vendor prefixes applied to the placeholder selector.
+
+_build/main.css_
+
+```css
+::-webkit-input-placeholder {
+    color: gray;
+  }
+::-moz-placeholder {
+    color: gray;
+  }
+:-ms-input-placeholder {
+    color: gray;
+  }
+::-ms-input-placeholder {
+    color: gray;
+  }
+::placeholder {
+    color: gray;
+  }
+  
+```
+
+That's it! A basic Introduction to Autoprefixer!
