@@ -12,7 +12,7 @@ const StyledFooter = styled("footer")`
     font-weight: 100;
   }
 
-  @media (min-width: );
+  
 `
 
 const Footer = () => {
