@@ -6,35 +6,37 @@ title: Build your portfolio site in minutes with Gatsby Portfolio Story
 tags:
   - Gatsby
   - React
-excerpt: Learn how to build your portfolio site in minutes with Gatsby Portfolio Story
+excerpt: >-
+  Learn how to build a blazing fast portfolio site in minutes with the Gatsby
+  Portfolio Story starter.
 image: /assets/gatsby-image.jpeg
 ---
-As a developer or designer, having an online makes it easier to showcase your previous work to prospective employers. In this article, I will walk you through how you can build a blazing fast portfolio site powered by Gatsby. This is done with the help of a Gatsby starter I wrote.
+As a developer or designer, having an online makes it easier to showcase your previous work to prospective employers. In this article, I will walk you through how you can build a blazing fast portfolio site powered by Gatsby. This will be done with the help of a Gatsby starter I wrote.
 
 Let us begin!
 
 You can find the starter on Gatsby's plugin library [here](https://www.gatsbyjs.org/packages/gatsby-portfolio-story/).
 
-To use the starter, install the Gatsby CLI if you don't have it installed
+To use the starter, install the Gatsby CLI if you don't have it installed:
 
 ```
 npm install -g gatsby-cli
 ```
 
-Now that you have the Gatsby CLI installed, create a new gatsby project with this command.
+Now that you have the Gatsby CLI installed, create a new Gatsby project with this command:
 
 ```
 gatsby new {your-project-name} https://github.com/NodeJSs/gatsby-portfolio-story
 ```
 
-Once you have done that, you should have a new gatsby project with the gatsby-portfolio-story starter installed.
+Once you have done that, you should have a new Gatsby project with the gatsby-portfolio-story starter installed.
 Now you can change your directory to that of the new Gatsby project:
 
 ```
 cd {your-project-name}
 ```
 
-Now run this command to get your local dev server running so you can see the starter:
+Now run this command to get your local development server running so you can see the starter:
 
 ```
 gatsby develop 
@@ -52,7 +54,6 @@ Your site should look like this
 
 ![Preview of the site](/assets/gatsby-portfolio-story-image.JPG "Preview of the site")
 
-
 The starter uses Emotion for styling and markdown files for the content(your portfolio). It is also a PWA (Progressive Web App) by default.
 
 ## Adding your portfolio
@@ -60,3 +61,33 @@ The starter uses Emotion for styling and markdown files for the content(your por
 Open the **content** folder in the root directory and study the structure of the folders in it. Each folder in the **content** folder represents a previous job or work you have done. In each folder, you have a markdown file which contains most of the information about that job and a preview image which will be displayed on the index page.
 
 Let's study one of the mock markdown files
+
+_//a-simple-design.md_
+
+```markdown
+---
+title: A simple design for Halo
+date: 2019-02-04
+published: true
+tags: [mobile, product design]
+client: Google
+role: Product designer
+link: google.com
+cover_image: "boxed-water-is-better-7mr6Yx-8WLc-unsplash.jpg"
+description: The magic of paint brush and a a little coffee
+---
+
+# Mobile app demo
+
+They never said winning was easy. Some people can’t handle success, I can. The key is to drink coconut, fresh coconut, trust me. Give thanks to the most high. Surround yourself with angels. They don’t want us to win. Give thanks 
+```
+
+The section of the markdown file sandwiched by a pair of "---" is called the frontmatter. This section contains information about a particular job.
+
+**Note:** your date should be in the same format shown above.
+
+After filling the frontmatter, you can proceed to write the other parts of your markdown file with a markdown editor or a CMS.
+
+That's basically all what you need to build your portfolio site, you can then host it using Netlify or your preferred method.
+
+You can reach out to me on twitter if you have any problems.
