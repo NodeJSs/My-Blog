@@ -38,7 +38,7 @@ const TagContainer = styled("div")`
 const ImageBackground = styled(BackgroundImage)`
   background-size: cover;
   background-position: center;
-  height: 250px;
+  height: 200px;
 
   * {
     border-top-left-radius: 6px;
@@ -132,3 +132,5 @@ const PostPreview = ({ post }) => {
 }
 
 export default PostPreview
+
+
