@@ -8,4 +8,57 @@ tags:
 excerpt: Avoid unnecessary markup in your React code using React Fragments.
 image: ''
 ---
-...to be continued
+If you are familiar with React, then you would know that you can only return one React element (which can have children) per component. This can be a problem if your component has to return more than one React element. A common hack to solve this problem is to wrap all the elements in a **div** and return that **div**. This method, however, adds unnecessary markup to your code. A standard way to solve this problem is with the use of React Fragments.
+
+## Using React Fragments
+
+There are two ways to use fragments. The first method is the shorthand method where you wrap the elements you want to return in**<></>** tags. For example:
+
+```jsx
+return(
+  <>
+    <Element1 />
+    <Element2 />
+    <Element3 />
+    <Element4 />
+  </>
+)
+```
+
+Using this method, the react fragment cannot take any props.
+The second method is by using a **React.Fragment** component. A similar example to the one above using this method will look like this:
+
+```jsx
+return(
+  <React.Fragment>
+    <Element1 />
+    <Element2 />
+    <Element3 />
+    <Element4 />
+  </React.Fragment>
+)
+```
+
+Using this method, the fragment can take a **key** prop which will be useful if you were mapping over an array and returning components for each array element. Here is an example I grabbed from the React Docs:
+
+```jsx
+function Glossary(props) {
+  return (
+    <dl>
+      {props.items.map(item => (
+        // Without the `key`, React will fire a key warning
+        <React.Fragment key={item.id}>
+          <dt>{item.term}</dt>
+          <dd>{item.description}</dd>
+        </React.Fragment>
+      ))}
+    </dl>
+  );
+}
+```
+
+
+
+## Conclusion
+
+React fragments help you avoid creating unnecessary markup and you should endeavor to use them whenever your React component needs to return multiple elements.
