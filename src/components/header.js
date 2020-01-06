@@ -13,6 +13,7 @@ const Header = () => (
       padding: "1rem 1.5rem 0 1.5rem",
       display: "flex",
       backgroundColor: "body",
+      transition: "background-color 0.5s",
       justifyContent: "space-between",
       alignItems: "center",
       img: {

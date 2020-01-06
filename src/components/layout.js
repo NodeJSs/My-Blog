@@ -54,6 +54,7 @@ const Layout = ({ children }) => {
         <main
           sx={{
             gridArea: "main",
+            transition: "background-color 0.5s",
             backgroundColor: "body",
           }}
         >

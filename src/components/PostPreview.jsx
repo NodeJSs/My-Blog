@@ -12,7 +12,7 @@ const Post = styled("div")`
   border-radius: 6px;
   text-align: left;
   position: relative;
-  transition: transform 0.5s, box-shadow 0.5s;
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.5s;
   margin-bottom: 2rem;
 
   :hover {
@@ -56,6 +56,7 @@ const PostPreview = ({ post }) => {
         borderStyle: "solid",
         borderColor: "postBorderColor",
         backgroundColor: "postPreviewBackground",
+        
       }}
     >
       {post.image ? (
