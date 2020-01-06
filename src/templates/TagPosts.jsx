@@ -62,7 +62,10 @@ const TagPosts = ({
 
       <Posts>
         {tagPosts.map(tagPost => (
-          <PostPreview post={tagPost.frontmatter} />
+          <div>
+            <PostPreview post={tagPost.frontmatter} />
+          </div>
+          
         ))}
       </Posts>
     </PostLayout>

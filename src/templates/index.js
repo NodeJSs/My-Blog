@@ -155,7 +155,10 @@ const IndexPage = ({
 
         <Posts>
           {group.map(post => (
-            <PostPreview post={post.frontmatter}></PostPreview>
+            <div>
+              <PostPreview post={post.frontmatter}></PostPreview>
+            </div>
+            
           ))}
         </Posts>
 
