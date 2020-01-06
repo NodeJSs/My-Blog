@@ -24,24 +24,12 @@ const Header = () => (
       },
     }}
   >
-    <div
-      css={css`
-        display: flex;
-      `}
-    >
-      <img
-        src="https://res.cloudinary.com/dqcsk8rsc/image/upload/q_auto/v1574354900/luck_pjsrvs.svg"
-        alt=""
-      />
-      <p
-        sx={{
-          marginLeft: "0.5rem",
-          color: "katanaLogo",
-        }}
-      >
-        Katana
-      </p>
-    </div>
+
+    <img
+      src="https://res.cloudinary.com/dqcsk8rsc/image/upload/q_auto/v1574354900/luck_pjsrvs.svg"
+      alt="Logo"
+    />
+
     <ThemeToggler />
   </header>
 )
