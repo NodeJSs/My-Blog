@@ -20,6 +20,8 @@ I'd say the main difference between React Router and Reach Router is that Reach 
 
 ### Installation
 
+Create a new React project and install Reach Router.
+
 To install Reach Router via:
 
 **npm**
@@ -34,4 +36,187 @@ npm install @reach/router
 yarn add @reach/router
 ```
 
-k
+### Basic Routing
+
+Now that we have Reach Router installed, let us do some basic routing.
+
+We are going to create two components - a Home component and a Dashboard Component. We will then use Reach Router to "switch" between the two components. Let's write our two components.
+
+**Note:** I will be writing all my code in my App.js
+
+_//App.js_
+
+```jsx
+const Home = () => {
+  return (
+    <div>
+      <h1>This is the home route</h1>
+    </div>
+  );
+};
+
+const Dashboard = () => {
+  return (
+    <div>
+      <h1>Dashboard</h1>
+    </div>
+  );
+};
+```
+
+Now that we have our components ready, we can start routing. To "switch" between the two components, we need links to point to each component and a Router component of which these two components will be children. We will start with the link. For routing, we need to use a Link component which will be imported from Reach Router. Each **Link** component will have a **to** attribute which is the path of the component (we will define this path soon). Let's add our links.
+
+```jsx
+import { Link } from "@reach/router";
+
+function App() {
+  return (
+    <>
+      <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+        <Link to="/">Home</Link>
+        <Link to="dashboard">Dashboard</Link>
+      </div>
+    </>
+  );
+}
+```
+
+As you can see, the path to the home component is "/" which means the home component will be rendered when the user is on the root path.
+
+Now that we have the links, let us import the Router component and use it.
+
+```jsx
+import { Link, Router } from "@reach/router";
+
+function App() {
+  return (
+    <>
+      <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+        <Link to="/">Home</Link>
+        <Link to="dashboard">Dashboard</Link>
+      </div>
+      <Router>
+        <Home path="/" />
+        <Dashboard path="dashboard" />
+      </Router>
+    </>
+  );
+}
+```
+
+From the code block above, our Home and Dashboard components are children of the Router component that we imported from Reach Router. Our components also carry a path attribute which should be equal to the **to** value of the appropriate **Link.** Now if you click on any link, it should lead to the appropriate component.
+
+Now let's move on to Nested Routing
+
+### Nested Routing
+
+Now let's say we want to add links ,which lead to different routes, to our Dashboard component. These links may lead to different menus in our dashboard. With Reach Router, we can nest the components we want to route to in our Dashboard component. Let's see how this works.
+
+Firstly, we have to create two new components which will serve as our menus here.
+
+```jsx
+const Route1 = () => {
+  return (
+    <div>
+      <h1>This is Route 1</h1>
+    </div>
+  );
+};
+const Message = () => {
+  return (
+    <div>
+      <h1>message</h1>
+    </div>
+  );
+};
+```
+
+Now that we have our menus ready, let's add their respective links to our Dashboard component.
+
+```jsx
+const Dashboard = ({ children }) => {
+  return (
+    <div>
+      <h1>Dashboard</h1>
+      <ul>
+        <li>
+          <Link to="route1">Route1</Link>
+        </li>
+        <li>
+          <Link to="message">
+            Message
+          </Link>
+        </li>
+      </ul>
+      <div>{children}</div>
+    </div>
+  );
+};
+```
+
+You can see that after we added the links, we added a **div** element which displays the current menu the user is on. Remember that this is possible because the menus will children of the Dashboard component.
+
+Now we need to add our menus as children to the Dashboard.
+
+```jsx
+function App() {
+  return (
+    <>
+      <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+        <Link to="/">Home</Link>
+        <Link to="dashboard">Dashboard</Link>
+      </div>
+      <Router>
+        <Home path="/" />
+        <Dashboard path="dashboard">
+          <Route1 path="route1" />
+          <Message path="message" />
+        </Dashboard>
+      </Router>
+    </>
+  );
+}
+```
+
+Now when we switch to the Dashboard route, we should have two links which we can use to switch between the Route1 and Message components.
+
+Now what if we want to add an index component , a child of the dashboard which will render when no other child of the dashboard is being rendered, to the dashboard. We can do that by simply adding a component with path set to "/" under the Dashboard component. Our Dashboard should look like this:
+
+```jsx
+<Dashboard path="dashboard">
+    <DashboardIndex path = "/"/>
+    <Route1 path="route1" />
+    <Message path="message" />
+</Dashboard>
+```
+
+### Adding a Default ("404") Route
+
+In the event that the user navigates to a non-existent route we want to show them a page that tells them that they are on a non-existent route. We have to create a route for that. This route is very similar to your regular 404 page so I like to call it a 404 route. Now with all that said, let's write a component that returns a **h1** element which says "Route not found".
+
+```jsx
+const FourOFour = () => {
+  return (
+    <div>
+      <h1>Route not found</h1>
+    </div>
+  );
+};
+```
+
+Now let's add this 404 route as a child of the Route component. This route will not have a path attribute and it will have an attribute or prop that says **default.**
+
+```jsx
+<Router>
+    <Home path="/" />
+    <Dashboard path="dashboard">
+        <DashboardIndex path = "/"/>
+        <Route1 path="route1" />
+        <Message path="message/:message" />
+    </Dashboard>
+    <FourOFour default />
+  
+</Router>
+```
+
+# Check routing.txt for other undone sections
