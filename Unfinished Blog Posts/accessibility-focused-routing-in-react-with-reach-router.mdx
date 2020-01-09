@@ -212,11 +212,43 @@ Now let's add this 404 route as a child of the Route component. This route will 
     <Dashboard path="dashboard">
         <DashboardIndex path = "/"/>
         <Route1 path="route1" />
-        <Message path="message/:message" />
+        <Message path="message" />
     </Dashboard>
-    <FourOFour default />
-  
+    <FourOFour default /> 
 </Router>
 ```
 
-# Check routing.txt for other undone sections
+### URL Parameters
+
+At times, we might need to pass in props in our links which are to be used in the respective route. Let us see how we can do that with Reach Router!
+
+Now let's say we want to pass in a message prop to the message route when we click on the message link in our dashboard. We will have to change the value of the **to** attribute to this:
+
+```jsx
+<Link to = "message/hello">Message</Link>
+```
+
+As you can see, we appended the message we want to pass,"hello", to the value of the **to** attribute of the link. Now how are we going to identify that message in our **Message** route? 
+
+Firstly, we need to modify the path of the route.
+
+```jsx
+ <Message path="message/:message" />
+```
+
+From the line of code above, you can see that we added "/:message" to the path. This means that a prop with the name of **message** will be passed to the Message route whenever we click on that link. You can now use the message props the same way you will use a regular prop.
+
+```jsx
+const Message = ({message}) => {
+  return (
+    <div>
+      <h1>{message}</h1>
+    </div>
+  );
+};
+```
+
+Using destructuring syntax, we were able to get the message props from the props object of our Message component.
+Now when you switch to the message route, you should see **hello** on the screen.
+
+### Passing data from one route to another.
