@@ -252,3 +252,34 @@ Using destructuring syntax, we were able to get the message props from the props
 Now when you switch to the message route, you should see **hello** on the screen.
 
 ### Passing data from one route to another.
+
+Now what if we need to pass in data from the Dashboard route to the Message route? We can do that through the Link component. We just have to pass in whatever data we want to pass (usually in the form of an object) to the **state** attribute of the Link component. Let's say we want to pass in an object which contains a property called **fullMessage.** Our Link component should look like this:
+
+```jsx
+<Link to="message/hello" state={{ fullMessage: "Hey What's up" }}>
+Message</Link>
+```
+
+In order to access this data from the Message route, we need to use the data inside props.
+
+```jsx
+const Message = ({
+  message,
+  location: {
+    state: { fullMessage }
+  }
+}) => {
+  return (
+    <div>
+      <h1>{message}</h1>
+      <p>{fullMessage}</p>
+    </div>
+  );
+};
+```
+
+Again, using destructuring syntax we were able to access the state object which is a property of the location object which is a property of the props of our Message component. We can now use the value of **fullMessage** in our JSX.
+
+## Conclusion
+
+If you made it to the end of the article, you should have a basic understanding of how Reach Router works. Reach Router can do other cool things such as animation on route change and so on. You can check out the [Reach Router website](https://reach.tech/router) for more information.
