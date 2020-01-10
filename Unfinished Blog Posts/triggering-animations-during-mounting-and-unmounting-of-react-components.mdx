@@ -1,13 +1,29 @@
 ---
-slug: triggering-animations-during-mounting-and-unmounting-of-react-components
-date: '06 January, 2020'
-dateForSorting: 2020-01-06T12:33:33.949Z
-title: Triggering animations during mounting and unmounting of React components
+slug: animating-your-react-components-during-mounting-and-unmounting
+date: '10 January, 2020'
+dateForSorting: 2020-01-10T12:33:33.949Z
+title: Animating your React Components during mounting and un-mounting
 tags:
   - react
 excerpt: >-
-  Learn how to trigger animations during the mounting and unmounting stages of
+  Learn how to trigger animations during the mounting and un-mounting stages of
   your react component using React-transition-group
 image: ''
 ---
-...
+Animations help improve the feel of a website and this leads to better user experience. We can use animations during different events: during page change, while scrolling and of course during mounting and un-mounting on components in component-based frameworks or libraries such as React.
+In this article, you will learn how to trigger animations during the mounting and un-mounting stages of your React component using React Transition Group.
+
+According to the React Transition Group Documentation, React Transition Group is not a library and I agree with this. It simply exposes transition stages, manages classes and performs other useful functions which make it easy to trigger animations during mounting and un-mounting.This "pseudo-library" consists of 4 components, three of which we will use in this article.
+
+Let's get started!
+
+## The Transition Component
+
+According to the documentation:\
+_"The Transition component lets you describe a transition from one component state to another over time with a simple declarative API. Most commonly it's used to animate the mounting and unmounting of a component, but can also be used to describe in-place transition states as well."_
+
+You want to use this component when you need to animate the mounting and unmounting of a component using styling in JavaScript. If you want to use CSS styling, you should use the _CSSTransition_ component which we look into next.
+
+Once again, according to the docs:
+
+_"By default the Transition component does not alter the behavior of the component it renders, it only tracks "enter" and "exit" states for the components. It's up to you to give meaning and effect to those states."_
