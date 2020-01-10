@@ -74,8 +74,7 @@ Now that you have it imported, we can now use it in our component. The Transitio
 const AComponent = ({ in: inProp }) => (
   <Transition in={inProp} timeout={500}>
     {state => (
-      <div style={{
-      }}>
+      <div>
         I am {state}
       </div>
     )}
@@ -143,4 +142,31 @@ function App(){
 }
 ```
 
-s
+Now, once you run your React app, you should see a text with "I am exited". This is because we set the initial value of our state variable, **entered**, to **false.** Clicking the button should change the text to "I am entering" and then to "I am entered". Clicking again should change the text to "I am exiting" and then to "I am exited". You should now understand how tracking state with the Transition component works. By now, you have probably noticed whenever a component exits, it doesn't unmount. You change this by adding the unmountOnExit prop to the Transition component like this:
+
+```jsx
+const AComponent = ({ in: inProp }) => (
+  <Transition in={inProp} timeout={500} unmountOnExit>
+    {state => (
+      <div>
+        I am {state}
+      </div>
+    )}
+  </Transition>
+); 
+```
+
+Now, the component should actually be unmounted upon reaching the "exited" stage. Since we now understand how tracking of state works, we should be able to apply styles during mounting and unmounting. Now let's make AComponent fade in during mounting. We need to change the initial value of **entered** to _true_. We also need to define some default styles and set the different styles during each state of the component. First of all, let us define our default styles:
+
+```javascript
+const defaultStyle = {
+  transition: `opacity ${duration}ms`,
+  opacity: 1
+};
+```
+
+Now let's define the different styles for each state:
+
+```
+0
+```
