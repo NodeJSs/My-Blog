@@ -31,7 +31,7 @@ const PostTemplate = ({ data: { mdx: post } }) => {
     <PostLayout>
       <SEO
         title={post.frontmatter.title}
-        image={post.frontmatter.image.childImageSharp.fluid.src}
+        image={post.frontmatter.image !== null ? post.frontmatter.image.childImageSharp.fluid.src:undefined}
         pathname={post.frontmatter.slug}
         description={post.frontmatter.excerpt}
       />
