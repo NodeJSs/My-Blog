@@ -15,9 +15,9 @@ image: ''
 layout: page-fullwidth
 title: Animating your React Components during mounting and unmounting
 categories:
-	-React
+	- React
 tags:
-	-Animations
+	- Animations
 header: no
 breadcrumb: true
 meta_description:  "Learn how to trigger animations during the mounting and unmounting stages of your react component using React-transition-group"
@@ -85,8 +85,9 @@ const AComponent = ({ in: inProp }) => (
 
 As you can see, the Transition component takes in two props - an **in** prop and a **timeout** prop. There are other props some of which we will look into later. For now, let's discuss these two props:
 
-* The value of the **in** prop is a boolean(true or false). If the value is in, our component will enter the **entering** state; if it is false, our component will enter the **exited** state.
+* The value of the **in** prop is a boolean (true or false). If the value is in, our component will enter the **entering** state; if it is false, our component will enter the **exited** state. We will set this using state soon.
 * The **timeout** prop defines the duration for each transition. You can assign it just one value if you want to set the same duration for all transitions. By transitions, I mean **appear**, **enter**, and **exit**. You can also assign different time duration to each transition like this:
+
 ```jsx
 timeout={{
  appear: 500,
@@ -94,3 +95,52 @@ timeout={{
  exit: 500,
 }}
 ```
+
+Now that we have written our component, let us use it in our App component. In our App component, we will create a button which will be used to toggle the value of the **in** prop between true and false. To do that, we will make use of the useState hook. First of all, we need to import the useState hook from React:
+
+```javascript
+import React, { useState } from "react";
+```
+
+Once that is done, let's create a new state:
+
+```
+const [entered, setEntered] = useState(false);
+```
+
+We can write our button element as follows:
+
+```jsx
+<button
+  onClick={() => {
+    setEntered(!entered);
+  }}
+>
+  Toggle Entered
+</button>
+```
+
+This button will toggle the value of the **in** prop.
+
+Now let us use AComponent in our App component
+
+```jsx
+function App(){
+  const [entered, setEntered] = useState(false);
+  return (
+    <div
+>
+      <AComponent in={entered} />
+        <button
+          onClick={() => {
+            setEntered(!entered);
+          }}
+        >
+          Toggle Entered
+        </button>
+    </div>
+  );
+}
+```
+
+s
