@@ -156,17 +156,56 @@ const AComponent = ({ in: inProp }) => (
 ); 
 ```
 
-Now, the component should actually be unmounted upon reaching the "exited" stage. Since we now understand how tracking of state works, we should be able to apply styles during mounting and unmounting. Now let's make AComponent fade in during mounting. We need to change the initial value of **entered** to _true_. We also need to define some default styles and set the different styles during each state of the component. First of all, let us define our default styles:
+Now, the component should actually be unmounted upon reaching the "exited" stage. Since we now understand how tracking of state works, we should be able to apply styles during mounting and unmounting. Now let's make AComponent scale up in size in during mounting. We need to change the initial value of **entered** to _true_. We also need to define some default styles and set the different styles during each state of the component. First of all, let us define our default styles:
 
 ```javascript
 const defaultStyle = {
-  transition: `opacity ${duration}ms`,
+  transition: `transform 200ms, opacity 200ms ease`,
   opacity: 1
 };
 ```
 
 Now let's define the different styles for each state:
 
+```js
+const transitionStyles = {
+  entering: { transform: "scale(0.5)", opacity: 0 }, 
+  entered: { transform: "scale(2.0)", opacity: 1},
+  exiting: { opacity: 0 },
+  exited: { opacity: 0 }
+};
 ```
-0
+
+Normally, AComponent would move right into the **entered** state without passing through the entering state on first mount. To change that, we need to add a prop called **appear** to the Transition component used in AComponent. We also want to use a different time duration for each state. We'll set **appear** to 100ms and enter and exit to 300ms. Finally, we want to apply the default and transition styles to div element returned from the child function of the Transition Component. AComponent should look like this now:
+
+```javascript
+const AComponent = ({ in: inProp }) => (
+  <Transition
+    in={inProp}
+    timeout={{
+      appear: 100,   
+      enter: 300,
+      exit: 300
+    }}
+    appear
+    unmountOnExit
+  >
+    {state => (
+      <div
+        style={{
+          ...defaultStyle,
+          ...transitionStyles[state]
+        }}
+      >
+        I am {state}
+      </div>
+    )}
+  </Transition>
+);
 ```
+
+Now when you run your app, the text should scale up in size during mounting and scale down before vanishing during unmounting with a nice transition.
+
+## The CSSTransition Component
+
+This transition is very similar to the Transition but it uses CSS transitions instead of JavaScript styles. With the CSSTransition, you have more control over the different states of your component.
