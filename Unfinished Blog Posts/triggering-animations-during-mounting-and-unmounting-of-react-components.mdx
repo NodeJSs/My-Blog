@@ -223,7 +223,13 @@ According to the docs, "CSSTransition applies a pair of class names during the a
 ```jsx
 const Gator = ({ in: inProp }) => {
   return (
-    <CSSTransition unmountOnExit in={inProp} timeout={{appear: 0, enter: 0, exit:300}} classNames="roll" appear>
+    <CSSTransition
+      unmountOnExit
+      in={inProp}
+      timeout={{ appear: 0, enter: 0, exit: 300 }}
+      classNames="roll"
+      appear
+    >
       <div>Gator</div>
     </CSSTransition>
   );
