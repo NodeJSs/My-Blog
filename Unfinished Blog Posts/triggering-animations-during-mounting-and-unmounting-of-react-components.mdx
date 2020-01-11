@@ -275,3 +275,29 @@ Let's define the styles during exiting before the component gets unmounted:
   transition: transform 1000ms, opacity 1000ms;
 }
 ```
+
+Now let us replace AComponent in our App component with gator. We will also set the value of the **in** prop to **entered**.
+
+```jsx
+function App() {
+  const [entered, setEntered] = useState(true);
+  return (
+    <div
+>
+      <Gator in={entered} />
+      <button
+        onClick={() => {
+          setEntered(!entered);
+        }}
+        style={{ marginTop: "10rem" }}
+      >
+        Toggle Entered
+      </button>
+    </div>
+  );
+}
+```
+
+Finally, we can run our app to see if the transition worked. If you followed all the steps, the div should rotate 720 degrees in and scale up in size and rotate back to zero degrees while scaling down in size during unmounting.
+
+## The TransitionGroup Component
