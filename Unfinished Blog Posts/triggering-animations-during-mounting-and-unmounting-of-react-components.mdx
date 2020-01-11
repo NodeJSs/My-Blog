@@ -208,4 +208,24 @@ Now when you run your app, the text should scale up in size during mounting and 
 
 ## The CSSTransition Component
 
-This transition is very similar to the Transition but it uses CSS transitions instead of JavaScript styles. With the CSSTransition, you have more control over the different states of your component. CSSTransition appends different classes during different states to your defined base class names. This allows you to style your component differently during each state.
+This transition is very similar to the Transition but it uses CSS transitions instead of JavaScript styles. With the CSSTransition, you have more control over the different states of your component. CSSTransition appends different classes during different states to your defined base class names. This allows you to style your component differently during each state. Using CSSTransition, we are going to create a component which renders a text that rotates in during mounting and rotates out during unmounting. It's a simple demonstration but it shows how CSSTransition works. Let us begin by importing the CSSTransition component.
+
+```js
+import { Transition, CSSTransition } from "react-transition-group";
+```
+
+After that is done, we need to create a new component which I will call Gator. Gator will return a CSSTransition component whose child will be the markup of our component. We want our CSSTransition component to transition on first mounting so we will add the appear prop. We also want our component to actually leave the DOM after reaching the exiting stage so we will add the the **unmountOnExit** prop.For our **timeout** prop, we want to set 0 milliseconds for the appear state, 0 milliseconds for the enter state and 300 milliseconds for the exit state. Since CSSTransition uses all the props from the Transition component, we also have to set an **in** prop. The value of this **in** prop will be destructured from the props object and aliased as **inProp.** In addition to the other props we have seen in the Transition component, CSSTransition also has a **classNames** prop which is used to define the base class name. We will set this to "roll". This means several classes like "roll-appear", "roll-appear-active" and so on will be applied to our component depending on the state of the component.
+
+According to the docs, "CSSTransition applies a pair of class names during the appear, enter, and exit states of the transition. The first class is applied and then a second \*-active class in order to activate the CSS transition. After the transition, matching \*-done class names are applied to persist the transition state."
+
+ Now, Gator should look like this:
+
+```jsx
+const Gator = ({ in: inProp }) => {
+  return (
+    <CSSTransition unmountOnExit in={inProp} timeout={{appear: 0, enter: 0, exit:300}} classNames="roll" appear>
+      <div>Gator</div>
+    </CSSTransition>
+  );
+};
+```
