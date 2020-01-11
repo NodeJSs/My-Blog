@@ -235,3 +235,43 @@ const Gator = ({ in: inProp }) => {
   );
 };
 ```
+
+Since we are going to be using CSS transitions, we obviously need to write CSS. I'll be writing my CSS in my App.css file. We want the div conntaining the text "Gator" to rotate 720 degrees and scale up in size during mounting. Firstly, we need to set the inital opacity which we want to be 0
+
+```css
+.roll-appear{
+  opacity:0;
+}
+.roll-enter{
+  opacity:0;
+}
+```
+
+Now we need to set the styles for the element after it has been mounted. The component will transition from the initial styles to this style:
+
+```css
+.roll-enter-done{
+  transform: rotate(720deg) scale(3);
+  opacity:1;
+  transition: transform 1000ms, opacity 1000ms;
+}
+```
+
+We also want the component to rotate out and scale down in size during unmounting. So let's define the style at the beginning of the exit state. This will be similar to the styles applied by **.roll-enter-done**:
+
+```css
+.roll-exit{
+  transform: rotate(720deg) scale(3);
+  opacity:1;
+}
+```
+
+Let's define the styles during exiting before the component gets unmounted:
+
+```css
+.roll-exit-active{
+  transform:rotate(0deg) scale(1);
+  opacity: 0;
+  transition: transform 1000ms, opacity 1000ms;
+}
+```
