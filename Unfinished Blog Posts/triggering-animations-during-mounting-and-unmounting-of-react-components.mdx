@@ -301,3 +301,17 @@ function App() {
 Finally, we can run our app to see if the transition worked. If you followed all the steps, the div should rotate 720 degrees in and scale up in size and rotate back to zero degrees while scaling down in size during unmounting.
 
 ## The TransitionGroup Component
+
+The last component I want to discuss in this article is the TransitionGroup component. Quoting the docs again:
+
+"_The <TransitionGroup> component manages a set of transition components (<Transition> and <CSSTransition>) in a list. Like with the transition components, <TransitionGroup> is a state machine for managing the mounting and unmounting of components over time._
+
+_Note that <TransitionGroup> does not define any animation behavior! Exactly how a list item animates is up to the individual transition component_."
+
+There is not much to say about this component except that it manages a set of transition components. An example of where you would use this component is in a To-do List component for animating the creation and deletion of to-do items.
+
+## Conclusion
+
+We have finally come to the end of this article. I trust you have learnt how React Transition Group works and how flexible you can be with it. If you need more information about React-Transition-Group, you can always visit the [documentation](http://reactcommunity.org/react-transition-group).
+
+.
