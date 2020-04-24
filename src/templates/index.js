@@ -93,8 +93,7 @@ const IndexPage = ({
         />
         <h1 sx={{ color: "katanaBlogText" }}>KatanaBlog</h1>
         <p sx={{ color: "bioParagraph"}}>
-          A technical blog for tech stuff by Faruq, a web developer and Anime
-          lover from Nigeria. <br /> I also capture moments in photographs📸
+          A technical blog for tech stuff by <h1>Yusuff Faruq</h1>, a web developer and Flutter developer from Nigeria. <br /> I also capture moments in photographs📸
         </p>
 
         <IconDiv>

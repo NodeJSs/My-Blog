@@ -19,6 +19,8 @@ export default {
     articleBodyColor: "#fff",
     articleTextColor: "#000",
     articleBorderColor: "#afafaf",
+    clapIconFill: "#C8C7C7",
+    clapIconBorder: "#62A0CD",
     modes: {
       dark: {
         body: "#334149",
@@ -39,6 +41,8 @@ export default {
         articleBodyColor: "#1D282E",
         articleTextColor: "#fff",
         articleBorderColor: "#333",
+        clapIconFill: "#ffffff",
+    clapIconBorder: "#62A0CD",
       },
     },
   },

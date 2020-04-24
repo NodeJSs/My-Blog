@@ -2,6 +2,7 @@
 import { jsx } from "theme-ui"
 import { graphql } from "gatsby"
 import { css } from "@emotion/core"
+import Clap from "../components/Clap";
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import PostLayout from "../components/postLayout"
 import SEO from "../components/seo"
@@ -58,7 +59,7 @@ const PostTemplate = ({ data: { mdx: post } }) => {
           /** */
         }}
       >
-        {post.frontmatter.date}
+        Posted {post.frontmatter.date}
       </p>
       <div
         sx={{
@@ -76,6 +77,8 @@ const PostTemplate = ({ data: { mdx: post } }) => {
         }}
       >
         <MDXRenderer>{post.body}</MDXRenderer>
+
+        <Clap />
       </div>
     </PostLayout>
   )

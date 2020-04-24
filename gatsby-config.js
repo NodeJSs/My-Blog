@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `KatanaBlog | Technical articles about tech`,
+    title: `KatanaBlog | Technical articles by Yusuff Faruq`,
     description: `Technical articles about tech`,
     author: `Yusuff Faruq`,
     twitterUsername: "@faruqyusuffG",
@@ -85,6 +85,20 @@ module.exports = {
         ],
         plugins: ["gatsby-remark-images"],
       },
+    },
+    {
+      resolve: "gatsby-plugin-firebase",
+      options: {
+        credentials: {
+          apiKey: "AIzaSyASUJTp3LkrxlV7hgCFDfqkoA_FRBE3-Ik",
+          authDomain: "thekatanadottech.firebaseapp.com",
+          databaseURL: "https://thekatanadottech.firebaseio.com",
+          projectId: "thekatanadottech",
+          storageBucket: "thekatanadottech.appspot.com",
+          messagingSenderId: "747276711553",
+          appId: "1:747276711553:web:58dfc0c359745b5973bf80"
+        }
+      }
     },
   ],
 }
