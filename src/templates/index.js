@@ -33,7 +33,7 @@ const IconDiv = styled("div")`
 `
 const MyName = styled("h1")`
   display: inline;
-  font-weight: 100%;
+  font-size: 100%;
   margin:0;
   font-weight: 400;
   letter-spacing: 0.05rem;
