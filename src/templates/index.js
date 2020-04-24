@@ -31,6 +31,14 @@ const IconDiv = styled("div")`
     }
   }
 `
+const MyName = styled("h1")`
+  display: inline;
+  font-weight: 100%;
+  margin:0;
+  font-weight: 400;
+  letter-spacing: 0.05rem;
+  font-family: "Roboto mono"
+`;
 
 
 
@@ -93,7 +101,7 @@ const IndexPage = ({
         />
         <h1 sx={{ color: "katanaBlogText" }}>KatanaBlog</h1>
         <p sx={{ color: "bioParagraph"}}>
-          A technical blog for tech stuff by <h1>Yusuff Faruq</h1>, a web developer and Flutter developer from Nigeria. <br /> I also capture moments in photographs📸
+          A technical blog for tech stuff by <MyName>Yusuff Faruq</MyName>, a web developer and Flutter developer from Nigeria. <br /> I also capture moments in photographs📸
         </p>
 
         <IconDiv>
