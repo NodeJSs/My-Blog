@@ -50,7 +50,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const tags = new Set(tagsArray)
   tags.forEach(tag => {
     actions.createPage({
-      path: `tag/${tag}`,
+      path: `tag/${tag.toLowerCase()}`,
       component: require.resolve("./src/templates/TagPosts.jsx"),
       context: {
         tagFor: tag,

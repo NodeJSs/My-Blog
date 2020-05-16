@@ -169,7 +169,7 @@ const IndexPage = ({
         </IconDiv>
 
         <PopularTags>
-          <PopularTag name = "Personal" link = "/tag/Personal" />
+          <PopularTag name = "Personal" link = "/tag/personal" />
           <PopularTag name = "React" link = "/tag/react" />
           <PopularTag name = "Firebase" link = "/tag/firebase" />
         </PopularTags>
