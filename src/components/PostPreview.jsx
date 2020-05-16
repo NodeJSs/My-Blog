@@ -111,7 +111,7 @@ const PostPreview = ({ post }) => {
           </p>
           <TagContainer>
             {tags.map(tag => (
-              <Tag tagFor={tag} />
+              <Tag tagFor={tag.toLowerCase()} />
             ))}
           </TagContainer>
         </PostBody>
