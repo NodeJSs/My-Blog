@@ -18,19 +18,20 @@ module.exports = {
         defaultQuality: 75,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `BlogImages`,
-        path: `${__dirname}/static/assets`,
-      },
-    },
+    
 
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/Blog Posts`,
+        path: `${__dirname}/Blog Posts/`,
         name: "Blog Posts",
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `BlogImages`,
+        path: `${__dirname}/static/assets/`,
       },
     },
 

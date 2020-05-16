@@ -1,32 +1,10 @@
 /**@jsx jsx */
 import { jsx } from "theme-ui"
 import { graphql } from "gatsby"
-import { css } from "@emotion/core"
-import Clap from "../components/Clap";
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import PostLayout from "../components/postLayout"
 import SEO from "../components/seo"
 
-export const query = graphql`
-  query($slug: String!) {
-    mdx(frontmatter: { slug: { eq: $slug } }) {
-      frontmatter {
-        slug
-        title
-        date
-        image {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-        excerpt
-      }
-      body
-    }
-  }
-`
 const PostTemplate = ({ data: { mdx: post } }) => {
   return (
     <PostLayout>
@@ -83,5 +61,28 @@ const PostTemplate = ({ data: { mdx: post } }) => {
     </PostLayout>
   )
 }
+
+
+
+export const query = graphql`
+  query($slug: String!) {
+    mdx(frontmatter: { slug: { eq: $slug } }) {
+      frontmatter {
+        slug
+        title
+        date
+        image {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        excerpt
+      }
+      body
+    }
+  }
+`
 
 export default PostTemplate

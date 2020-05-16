@@ -7,29 +7,6 @@ import PostPreview from "../components/PostPreview"
 import Posts from "../components/Posts"
 import { jsx } from "theme-ui"
 
-export const query = graphql`
-  query($tagFor: [String]) {
-    allMdx(filter: { frontmatter: { tags: { in: $tagFor } } }) {
-      nodes {
-        frontmatter {
-          excerpt
-          slug
-          title
-          date
-          dateForSorting(formatString: "D-M-Y")
-          image {
-            childImageSharp {
-              fluid {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
-          }
-          tags
-        }
-      }
-    }
-  }
-`
 
 const TagPosts = ({
   data: {
@@ -71,5 +48,30 @@ const TagPosts = ({
     </PostLayout>
   )
 }
+
+
+export const query = graphql`
+  query($tagFor: [String]) {
+    allMdx(filter: { frontmatter: { tags: { in: $tagFor } } }) {
+      nodes {
+        frontmatter {
+          excerpt
+          slug
+          title
+          date
+          dateForSorting(formatString: "D-M-Y")
+          image {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+          tags
+        }
+      }
+    }
+  }
+`
 
 export default TagPosts
