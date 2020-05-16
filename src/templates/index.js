@@ -171,7 +171,7 @@ const IndexPage = ({
         <PopularTags>
           <PopularTag name = "Personal" link = "/tag/Personal" />
           <PopularTag name = "React" link = "/tag/react" />
-          <PopularTag name = "Firebase" link = "/tag/Firebase" />
+          <PopularTag name = "Firebase" link = "/tag/firebase" />
         </PopularTags>
         <Posts>
           {group.map(post => (
