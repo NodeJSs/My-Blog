@@ -53,7 +53,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       path: `tag/${tag.toLowerCase()}`,
       component: require.resolve("./src/templates/TagPosts.jsx"),
       context: {
-        tagFor: tag,
+        tagFor: tag.toLowerCase(),
       },
     })
   })
