@@ -78,7 +78,7 @@ const PostTemplate = ({ data: { mdx: post } }) => {
       >
         <MDXRenderer>{post.body}</MDXRenderer>
 
-        <Clap />
+        {/*<Clap />*/}
       </div>
     </PostLayout>
   )

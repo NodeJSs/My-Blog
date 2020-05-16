@@ -8,6 +8,7 @@ import PostPreview from "../components/PostPreview"
 import Posts from "../components/Posts"
 import { graphql, Link } from "gatsby"
 import { jsx } from "theme-ui"
+import PopularTag from "../components/PopularTag";
 
 const presentDate = new Date();
 let avatarImageSource = "https://res.cloudinary.com/dqcsk8rsc/image/upload/v1574358048/avatar_gmcueg.svg";
@@ -40,7 +41,14 @@ const MyName = styled("h1")`
   font-family: "Roboto mono"
 `;
 
-
+const PopularTags = styled("div")`
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  padding: 1rem 0;
+  width: 70%;
+  max-width: 350px;
+`
 
 if(presentDate.getMonth() === 11 && presentDate.getUTCDate() === 25){
   avatarImageSource = "https://res.cloudinary.com/dqcsk8rsc/image/upload/v1577268052/merry-christmas_mfolfq.png";
@@ -160,6 +168,11 @@ const IndexPage = ({
           </a>
         </IconDiv>
 
+        <PopularTags>
+          <PopularTag name = "Personal" link = "/tag/Personal" />
+          <PopularTag name = "React" link = "/tag/react" />
+          <PopularTag name = "Firebase" link = "/tag/Firebase" />
+        </PopularTags>
         <Posts>
           {group.map(post => (
             <div>
