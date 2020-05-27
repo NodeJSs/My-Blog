@@ -19,7 +19,7 @@ const Footer = () => {
   return (
     <StyledFooter>
       <p style={{ margin: "0.5rem" }}>
-        All articles are written by Yusuff Faruq
+        All articles are written by Yusuff Faruq Gbolahan
       </p>
   <p style={{ margin: "0" }}>Copyright &copy; {new Date().getFullYear()}</p>
     </StyledFooter>
